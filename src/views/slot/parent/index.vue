@@ -24,7 +24,7 @@
     </div>
     <van-cell-group>
       <van-field v-model="grandson" label="内容" placeholder="传给子用户的内容" />
-      <van-button type="info" @click="onConfirm">确定</van-button>
+      <van-button type="primary" @click="onConfirm">确定</van-button>
     </van-cell-group>
   </div>
 </template>

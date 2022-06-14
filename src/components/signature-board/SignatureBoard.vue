@@ -1,13 +1,7 @@
 <template>
-  <div class="canvas-board"
-    oncontextmenu="return false"
-    onselectstart="return false"
-    ondragstart="return false">
-    <div :id="signatureIdName"
-      class="opacity-9"
-      style="zIndex:1"></div>
-    <p class="canvas-board__text"
-      :class="{'text-rotate':signatureType!='signatureMin'}">签字区域</p>
+  <div class="canvas-board" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+    <div :id="signatureIdName" class="opacity-9" style="zIndex:1"></div>
+    <p class="canvas-board__text" :class="{ 'text-rotate': signatureType != 'signatureMin' }">签字区域</p>
   </div>
 </template>
 
@@ -179,6 +173,7 @@ defineExpose({ onConfimClick, onClearCanvasClick });
   display: flex;
   align-items: center;
   justify-content: center;
+
   &__text {
     position: absolute;
     letter-spacing: 12px;
@@ -186,9 +181,11 @@ defineExpose({ onConfimClick, onClearCanvasClick });
     font-size: 32px;
   }
 }
+
 .opacity-9 {
   opacity: 0.9;
 }
+
 .text-rotate {
   transform: rotate(90deg);
 }

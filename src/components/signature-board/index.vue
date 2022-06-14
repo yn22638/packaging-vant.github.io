@@ -63,8 +63,6 @@ const props = defineProps<Props>();
 //   get: () => props.visible;
 //   set: (val: boolean) => emits("update:visible", val);
 // });
-
-
 // 为组件的 emit 标注类型
 // 运行时
 // const emits = defineEmits(["confirm", "update:visible"]);、

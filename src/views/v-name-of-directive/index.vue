@@ -1,7 +1,8 @@
 <template>
-  <div class="" v-my-directive v-if="isShow">
+  <!-- 打包出错，暂时注释 -->
+  <!-- <div class="" v-my-directive v-if="isShow">
     <p class="red">距离隐藏还有{{ time }}秒</p>
-  </div>
+  </div> -->
 </template>
 
 <script setup lang="ts">
