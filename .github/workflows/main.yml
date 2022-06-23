@@ -14,21 +14,21 @@ jobs:
       - uses: actions/checkout@v2
 
       # 缓存依赖
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Get pnpm cache
+        id: pnpm-cache
+        run: echo "::set-output name=dir::$(pnpm cache dir)"
       - uses: actions/cache@v1
         with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: ${{ steps.pnpm-cache.outputs.dir }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-pnpm-
 
       # 安装依赖
-      - run: yarn
+      - run: pnpm
 
       # 打包构建
-      - run: yarn build
+      - run: pnpm build
 
       # 发布到 GitHub Pages
       - name: Deploy
