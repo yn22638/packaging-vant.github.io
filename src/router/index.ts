@@ -5,6 +5,7 @@ import {
   RouteRecordRaw,
 } from 'vue-router'
 import Home from '../views/home/index.vue'
+import SignatureBoard from '../views/sign-board/index.vue'
 import TodayPopup from '../views/today-popup/index.vue'
 const routes: Array<RouteRecordRaw> = [
   {
@@ -15,6 +16,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/signature-oard',
+    name: 'SignatureBoard',
+    component: SignatureBoard,
   },
   {
     path: '/today-popup',

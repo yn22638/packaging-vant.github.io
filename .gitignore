@@ -22,10 +22,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-/dist
-
-# local env files
-.env.local
-.env.*.local
-

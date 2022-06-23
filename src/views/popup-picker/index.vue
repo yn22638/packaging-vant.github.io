@@ -257,7 +257,7 @@ onMounted(() => {
 <style lang="less" scoped>
 .popup-picker {
 
-  &__demo { 
+  &__demo {
     background-color: #f7f8fa;
   }
 
