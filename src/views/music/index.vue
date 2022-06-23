@@ -1,14 +1,9 @@
 <template>
   <div class="">
     <van-cell-group>
-      <van-cell v-for="(item) in topList"
-        :key="item.id"
-        :title="item.name"
-        :value="item.song" />
+      <van-cell v-for="(item) in topList" :key="item.id" :title="item.name" :value="item.song" />
     </van-cell-group>
-    <van-button van-button
-      type="primary"
-      @click="onGoBackClick">返回</van-button>
+    <van-button van-button type="primary" @click="onGoBackClick">返回</van-button>
   </div>
 </template>
 
@@ -30,5 +25,5 @@ const onGoBackClick = () => {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 </style>

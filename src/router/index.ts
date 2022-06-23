@@ -5,7 +5,6 @@ import {
   RouteRecordRaw,
 } from 'vue-router'
 import Home from '../views/home/index.vue'
-import SignatureBoard from '../views/sign-board/index.vue'
 import TodayPopup from '../views/today-popup/index.vue'
 const routes: Array<RouteRecordRaw> = [
   {
@@ -16,11 +15,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'Home',
     component: Home,
-  },
-  {
-    path: '/signature-oard',
-    name: 'SignatureBoard',
-    component: SignatureBoard,
   },
   {
     path: '/today-popup',
@@ -96,6 +90,28 @@ const routes: Array<RouteRecordRaw> = [
     path: '/popup-picker',
     name: 'PopupPicker',
     component: () => import('@/views/popup-picker/index.vue'),
+  },
+  {
+    path: '/loading',
+    name: 'Loading',
+    component: () => import('@/views/loading/index.vue'),
+  },
+  {
+    path: '/v3-proxy/',
+    name: 'V3Proxy',
+    component: () => import('@/views/v3-proxy/index.vue'),
+    children: [
+      {
+        path: 'demo1',
+        name: 'ProxyDemo01',
+        component: () => import('@/views/v3-proxy/demo01.vue'),
+      },
+      {
+        path: 'v3',
+        name: 'ProxyDemo02',
+        component: () => import('@/views/v3-proxy/V3Proxy.vue'),
+      },
+    ],
   },
 ]
 const router = createRouter({

@@ -5,6 +5,7 @@ import Components from 'unplugin-vue-components/vite'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
 import AutoImport from 'unplugin-auto-import/vite'
 import WindiCSS from 'vite-plugin-windicss'
+// https://vitejs.dev/config/
 export default defineConfig({
   base: './',
   // 插件配置
@@ -56,6 +57,7 @@ export default defineConfig({
   build: {
     //指定输出路径
     assetsDir: './',
+    minify: 'terser',
     // 指定输出文件路径
     outDir: 'dist',
     // 代码压缩配置

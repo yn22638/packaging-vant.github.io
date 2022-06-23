@@ -62,5 +62,5 @@ const plusOne = computed(() => count.value + 1, {
 
 </script>
 
-<style lang="scss" scoped >
+<style lang="less" scoped >
 </style>

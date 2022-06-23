@@ -12,9 +12,7 @@
     <van-button @click.capture="onCaptureClick">onCaptureClick</van-button>
     <br>
 
-    <input v-model.trim="inputValue"
-      type="text"
-      @keyup.enter="onEnterChange">
+    <input v-model.trim="inputValue" type="text" @keyup.enter="onEnterChange">
   </div>
 </template>
 
@@ -40,5 +38,5 @@ const onEnterChange = () => {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 </style>

@@ -17,5 +17,5 @@ const { data1, data2 } = inject('data', { data1: '', data2: '' })
 const input = inject<string>('inputValue', '')
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 </style>

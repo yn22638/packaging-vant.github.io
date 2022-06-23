@@ -51,6 +51,7 @@ const props = withDefaults(
     visibleItemCount?: number | string
     swipeDuration?: number | string
     customFieldName?: PickerFieldNames
+    pickerRef?: undefined
   }>(),
   {
     // popup
@@ -68,10 +69,10 @@ const props = withDefaults(
     safeAreaInsetBottom: false, // 是否开启底部安全区适配
     // picker
     title: '请选择', // 默认标题
-    columns: () => ([]), // 列表内容
+    columns: () => (['杭州', '宁波', '温州', '绍兴', '湖州', '嘉兴', '金华']), // 列表内容
     confirmButtonText: '确认', // 确认按钮文案
     cancelButtonText: '取消', // 取消按钮文案
-    toolbarPosition: 'top', // 取消按钮文案
+    toolbarPosition: 'top', // 顶部标栏位置
     loading: false, // 是否显示加载状态
     showToolbar: true, // 是否显示顶部标栏
     defaultIndex: 0, // 单列选择时，默认选中项的索引
@@ -101,5 +102,5 @@ const onConfirmClick = (currentValue: PickerOption | PickerOption[], currentInde
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 </style>

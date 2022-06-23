@@ -11,15 +11,12 @@
           <van-swipe-item>今人不见古时月，今月曾经照古人。</van-swipe-item>
         </van-swipe>
       </van-notice-bar>
-      <model-card></model-card>
+      <model-card class="pb-16px"></model-card>
     </div>
-    <!-- 此处要计算 100vh - 56px 然后在获取到内容的高度再去作比较 -->
-    <m-back-top></m-back-top>
   </div>
 </template>
 
 <script setup lang="ts">
-import MBackTop from "@/components/m-back-top/index.vue";
 import ModelCard from './components/ModelCard.vue';
 
 // import { modelList } from "./mock-data";

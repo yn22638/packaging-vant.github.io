@@ -96,5 +96,5 @@ const onFailed = (errorInfo: any) => {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 </style>

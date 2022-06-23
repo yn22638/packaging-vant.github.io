@@ -1,5 +1,5 @@
 <template>
-  <div class="chat min-h-full bg-f8">
+  <div class="min-h-full bg-f8 chat">
     <send-box></send-box>
   </div>
 </template>
@@ -8,5 +8,5 @@
 import SendBox from "./components/SendBox.vue";
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 </style>

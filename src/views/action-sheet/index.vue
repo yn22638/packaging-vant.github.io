@@ -9,16 +9,12 @@
     </div>
     <van-action-sheet v-model:show="isShowaAction" :actions="actions" cancel-text="取消" close-on-click-action
       @cancel="onActionCancelClick" @select="onActionSelectClick" />
-    <van-overlay :show="isShowOverlay">
-      <div class="loading">
-        <van-loading type="spinner" color="#1989fa" />
-        <p class="text-fff mt-20px">加载中...</p>
-      </div>
-    </van-overlay>
+    <m-loading :show="isShowOverlay"></m-loading>
   </div>
 </template>
 
 <script setup lang="ts">
+import MLoading from "@/components/m-loading/index.vue";
 const isShowaAction = ref(false);
 const isShowOverlay = ref(true);
 const curren = ref('')
@@ -44,14 +40,4 @@ onMounted(async () => {
 </script>
 
 <style lang="less" scoped>
-::v-deep {
-  .loading {
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-  }
-}
 </style>

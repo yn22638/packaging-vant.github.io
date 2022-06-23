@@ -41,5 +41,5 @@ const onCalendarsConfirm = (calendars: any) => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 </style>

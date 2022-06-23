@@ -1,13 +1,13 @@
-# PackagingVant
+# ViteV3Phone
 
-## 介绍
+#### 介绍
 
-- h5 项目
-- 主要采用 vue+vite+ts
-- ui 框架采用 vant3
-- echrts 采用 antv
+h5 项目
+主要采用 vue+vite+ts
+ui 框架采用 vant
+echrts 采用 antv
 
-## 自动生成图片
+#### 自动生成图片
 
 [地址](https://picsum.photos/)
 
@@ -20,13 +20,13 @@ https://picsum.photos/200/300
 https://picsum.photos/200
 ```
 
-## 启动
+#### 启动
 
 1.  pnpm i
 2.  pnpm run dev
 3.  打开 http://localhost:3000/
 
-## windi css
+#### windi css
 
 [地址](https://windicss.org/)
 
@@ -42,38 +42,7 @@ https://picsum.photos/200
 
 > 查看 Vite 上 Windi CSS 和 Tailwind CSS 之间的速度比较。 [go](https://twitter.com/antfu7/status/1361398324587163648)
 
-## auto-import
-
-- 使用 auto-import 在 vite.config 里面配置好倒入的内容，这样的好处我们在代码里就不需要任何引入
-  如
-
-```js
-// import { ref } from 'vue'
-// 无需引入 我们也可以使用
-const count = ref(9)
-// 还有一些vant组建，无须自己全局导入或者按需导入，直接配置在auto-import就可以直接使用，auto import内部也是采用按需倒入原理
-```
-
-## vueuse
-
-## pinia
-
-## @commitlint/config-conventional
-
-- packjson 里面 scripts 指定了运行脚本命令的 npm 命令行来安装 git 提交规范，
-  **"preinstall": "npm install -g commitizen cz-conventional-changelog @commitlint/cli @commitlint/config-conventional"**
-
-```js
-// 安装完成以后要生成一个commitlint.config.js配置文件
-// 这样就好了，当然还有其他的配置方式和不同的插件种类就不多做讲解了
-module.exports = {extends: ['@commitlint/config-conventional']};" > commitlint.config.js
-```
-
-## @bryanadamss/drawing-board
-
-- 自己封装了一个全局组建，也就是签字画板，具体可以去页面查看
-
-## 特技
+#### 特技
 
 1.  使用 Readme_XXX.md 来支持不同的语言，例如 Readme_en.md, Readme_zh.md
 2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)

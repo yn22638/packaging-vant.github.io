@@ -3,7 +3,7 @@
     <van-popup class="" v-model:show="visible" :close-on-click-overlay='false' :overlay-style="{ zIndex: 1000 }"
       safe-area-inset-bottom position="bottom" :style="{ height: '315px', zIndex: 1001 }"
       @click-overlay='onOverlayCancelClick'>
-      <div class="popup-header">
+      <div class="py-10px px-16px popup-header">
         <p class="text-666" @click="onOverlayCancelClick">取消</p>
         <p class="" style="color:#1989fa" @click="onConfimClick('min')">确认</p>
       </div>
@@ -31,7 +31,7 @@
             <div style="z-index:20000" @click="onOverlayCancelClick">
               <van-icon name="https://static.weixiaotong.com.cn/static/icon/mobile_zjll/intelligentForm/goBack.png"
                 class="goback-icon" />
-              <span class="text-666 ml-7">取消</span>
+              <span class="ml-7 text-666">取消</span>
             </div>
             <div class="d-flex" style="z-index:20000">
               <div class="d-flex ai-center" @click="onClearBoardClick">
@@ -63,6 +63,8 @@ const props = defineProps<Props>();
 //   get: () => props.visible;
 //   set: (val: boolean) => emits("update:visible", val);
 // });
+
+
 // 为组件的 emit 标注类型
 // 运行时
 // const emits = defineEmits(["confirm", "update:visible"]);、
@@ -98,8 +100,8 @@ const onConfimClick = (val: string) => {
   }
   nextTick(() => {
     val === "min"
-      ? (signatureMinRef.value as SignatureBoard).onConfimClick()
-      : (signatureMaxRef.value as SignatureBoard).onConfimClick();
+      ? (signatureMinRef.value as any).onConfimClick()
+      : (signatureMaxRef.value as any).onConfimClick();
   });
 };
 const onClickTextChange = (val: boolean) => {
@@ -108,8 +110,8 @@ const onClickTextChange = (val: boolean) => {
 // 重签
 const onClearBoardClick = () => {
   nextTick(() => {
-    (signatureMinRef.value as SignatureBoard)?.onClearCanvasClick();
-    (signatureMaxRef.value as SignatureBoard)?.onClearCanvasClick();
+    (signatureMinRef.value as any)?.onClearCanvasClick();
+    (signatureMaxRef.value as any)?.onClearCanvasClick();
   });
 };
 const onSignatrueConfirm = (img: string) => {
@@ -135,7 +137,7 @@ onMounted(() => {
   &-header {
     display: flex;
     justify-content: space-between;
-    padding: 0 15px;
+    // padding: 0 15px;
     font-size: 16px;
   }
 

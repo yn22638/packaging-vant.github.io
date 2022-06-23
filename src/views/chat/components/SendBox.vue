@@ -21,13 +21,13 @@
       </transition>
     </div>
     <div class="send-box__features" v-show="isShowEmotion">
-      <emotion show @iconClick="onIconClick"></emotion>
+      <m-emotion show @iconClick="onIconClick"></m-emotion>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import emotion from "@/components/emotion/index.vue";
+import MEmotion from "@/components/m-emotion/index.vue";
 
 const isVoice = ref(false)
 const isSpeak = ref(false)
