@@ -86,7 +86,7 @@ const onClose = () => {
 
 // picker
 // change 监听
-const onPickerChange = (currentValue: PickerOption | PickerOption[], currentIndex: number | number[]) => {
+const onPickerChange: any = (currentValue: PickerOption | PickerOption[], currentIndex: number | number[]): void => {
   console.log(`您选择的是${currentValue}，当前索引${currentIndex}`);
   //  pickerRef.value.setColumnValues(1, cities[values[0]]);
 }

@@ -9,7 +9,6 @@
 </template>
 
 <script setup lang="ts">
-import { Notify } from 'vant';
 import { modelList } from "./mock-data";
 interface ModelInfo {
   name: string
@@ -23,7 +22,8 @@ interface ModelInfo {
 const router = useRouter()
 const onCellClick = (model: ModelInfo) => {
   console.log(model, 'model');
-  model.name ? router.push({ name: model.name }) : Notify({ type: 'success', message: '正在开发中！，敬请期待' })
+
+  model.name ? router.push({ name: model.name }) : Toast('正在开发中！，敬请期待')
 }
 const generateMixed = () => {
   var chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',

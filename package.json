@@ -4,13 +4,12 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit --skipLibCheck && vite build",
     "preview": "vite preview",
     "prepare": "husky install",
     "preinstall": "npm install -g commitizen cz-conventional-changelog @commitlint/cli @commitlint/config-conventional"
   },
   "dependencies": {
-    "@bryanadamss/drawing-board": "^1.5.13",
     "@vueuse/core": "^8.4.1",
     "axios": "^0.27.2",
     "less": "^4.1.2",

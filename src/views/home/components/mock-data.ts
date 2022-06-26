@@ -21,11 +21,6 @@ const modelList: ModelInfo[] = [
     label: '使用Qq,表情符号编码,获取到对应的 表情.gif,类一个聊天框输入的模型',
   },
   {
-    name: 'SignatureBoard',
-    title: 'm-signature-board',
-    label: '基于@bryanadamss/drawing-board插件，封装了一个签字版',
-  },
-  {
     name: 'Loading',
     title: 'm-loading',
     label: '采用 overlay 与 loading 一起实现的页面加载，或局部加载',

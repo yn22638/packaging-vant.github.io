@@ -22,6 +22,7 @@ export default defineConfig({
         '@vueuse/core',
         {
           vant: [
+            // 像 Notify 需要在此处引入，要不打包以后没作用
             'Toast', // import { Toast } from 'vant'
             'Dialog', // import { Dialog } from 'vant'
           ],
