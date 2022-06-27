@@ -10,16 +10,15 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest # 运行环境，告诉它运行在什么环境
     steps: # 步骤
-
       # 第一步：下载仓库代码(CI/CD拉取代码到自己的本地)
       - uses: actions/checkout@v3
       - name: node version
-        run: node -v
+      - run: node -v
 
       # 第二步：打包构建
       - name: Install any Build
-        run: pnpm install # 安装打包依赖
-        run: pnpm build # 打包
+      - run: pnpm install # 安装打包依赖
+      - run: pnpm build # 打包
 
       # 发布到 GitHub Pages
       - name: Deploy to Github Pages
