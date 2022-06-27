@@ -26,6 +26,16 @@ https://picsum.photos/200
 2.  pnpm run dev
 3.  打开 http://localhost:3000/
 
+#### 打包
+
+- pnpm build
+- 本地会生成一个 dist 文件，由于 vite\
+
+#### 在线预览
+
+- 我这里是使用的 http-server
+  > cd dist -> http-server
+
 #### windi css
 
 [地址](https://windicss.org/)
