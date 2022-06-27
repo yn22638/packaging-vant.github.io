@@ -12,16 +12,13 @@ jobs:
     steps: # 步骤
       # 第一步：下载仓库代码(CI/CD拉取代码到自己的本地)
       - uses: actions/checkout@v3
-      - name: node version
-      - run: node -v
 
       # 第二步：打包构建
-      - name: Install any Build
-      - run: pnpm install # 安装打包依赖
-      - run: pnpm build # 打包
+      - run: npx pnpm i --store=node_modules/.pnpm-store# 安装打包依赖
+      - run: npx pnpm run build # 打包
 
       # 发布到 GitHub Pages
-      - name: Deploy to Github Pages
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         env:
           PERSONAL_TOKEN: ${{ secrets.ACCESS_TOKEN }} # 访问秘钥
