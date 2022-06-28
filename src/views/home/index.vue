@@ -6,9 +6,9 @@
     <div class="flex-1 overflow-auto">
       <van-notice-bar left-icon="volume-o" :scrollable="false" class="py-16px">
         <van-swipe vertical class="notice-swipe" :autoplay="3000" :show-indicators="false">
-          <van-swipe-item>明月直入，无心可猜。</van-swipe-item>
-          <van-swipe-item>仙人抚我顶，结发受长生。</van-swipe-item>
-          <van-swipe-item>今人不见古时月，今月曾经照古人。</van-swipe-item>
+          <van-swipe-item>一份耕耘,一份收获。</van-swipe-item>
+          <van-swipe-item>愿你一生努力,一生被爱。</van-swipe-item>
+          <van-swipe-item>哪有什么十全十美，凡事只求半称心。</van-swipe-item>
         </van-swipe>
       </van-notice-bar>
       <model-card class="pb-16px"></model-card>
@@ -18,15 +18,6 @@
 
 <script setup lang="ts">
 import ModelCard from './components/ModelCard.vue';
-
-// import { modelList } from "./mock-data";
-// const modelList = ref([
-//   {
-//     type: 'picker',
-//     title: '弹出 picker',
-//     label: '基于 popup 与 picker 二次封装'
-//   }
-// ])
 </script>
 
 <style lang="less" scoped>
