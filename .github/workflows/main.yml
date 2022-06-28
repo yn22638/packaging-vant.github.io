@@ -21,6 +21,6 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.ACCESS_TOKEN }} # 访问秘钥
+          github_token: ${{ secrets.PERSONAL_TOKEN }} # 访问秘钥
           publish_branch: gh-pages # 推送分支
           publish_dir: ./dist # 部署目录
