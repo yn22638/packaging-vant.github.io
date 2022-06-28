@@ -1,0 +1,1 @@
+import{g as e,o as s,c as a,a as l}from"./index.efe4ebdd.js";const p={class:"flex p-20px justify-between"},t=[l("p",null,"今天：",-1),l("p",null,"吃什么！",-1)],d=e({setup:e=>(e,l)=>(s(),a("div",p,t))});export{d as default};
