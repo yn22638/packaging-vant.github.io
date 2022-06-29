@@ -9,15 +9,43 @@
           <van-swipe-item>一份耕耘,一份收获。</van-swipe-item>
           <van-swipe-item>愿你一生努力,一生被爱。</van-swipe-item>
           <van-swipe-item>哪有什么十全十美，凡事只求半称心。</van-swipe-item>
+          <van-swipe-item>白茶清欢无别事，我在等风也等你。</van-swipe-item>
         </van-swipe>
       </van-notice-bar>
       <model-card class="pb-16px"></model-card>
+    </div>
+    <!-- 目录浮窗 -->
+    <div class="flex h-36px text-fff top-150px w-98px catalogue__btn fixed items-center" :style="{
+      right: isShowCatalogue ? '0' : catalogueRight,
+    }" @click="isShowCatalogue = !isShowCatalogue">
+      <img src="@/assets/catalogue-icon.png" class="h-24px mr-2px ml-8px w-25px" />
+      <button class="bg-transparent h-20px text-fff text-14px leading-20px" @click.stop="onCatalogueClick">
+        知识小🏡
+      </button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import ModelCard from './components/ModelCard.vue';
+
+// const catalogueIcon = import.meta.glob('@/assets/catalogue-icon.svgs')
+
+const isShowCatalogue = ref(false)
+
+const onCatalogueClick = () => {
+  console.log('打开目录');
+}
+
+const catalogueRight = computed(() => {
+  let clientWidth = 0
+  // wx.getSystemInfo({
+  //   success(res) {
+  //     clientWidth = res.windowWidth
+  //   },
+  // })
+  return clientWidth > 350 ? '-64px' : '-66px'
+})
 </script>
 
 <style lang="less" scoped>
@@ -40,5 +68,10 @@ import ModelCard from './components/ModelCard.vue';
     backdrop-filter: blur(20px);
   }
 
+  .catalogue__btn {
+    border-radius: 405px 0 0 405px;
+    background: rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+  }
 }
 </style>
