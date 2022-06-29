@@ -3,7 +3,7 @@
     <div class="flex flex-shrink w-full p-16px home-header justify-between overflow-hidden ai-center">
       目录
     </div>
-    <div class="flex-1 overflow-auto">
+    <div class="flex-1 overflow-auto" @scroll="onScrollChange" id="content-box" ref="contentRef">
       <van-notice-bar left-icon="volume-o" :scrollable="false" class="py-16px">
         <van-swipe vertical class="notice-swipe" :autoplay="3000" :show-indicators="false">
           <van-swipe-item>一份耕耘,一份收获。</van-swipe-item>
@@ -13,6 +13,7 @@
         </van-swipe>
       </van-notice-bar>
       <model-card class="pb-16px"></model-card>
+      <m-back-top :scroll-top-h="scrollTopH" @on-back-top="onBindTop"></m-back-top>
     </div>
     <!-- 目录浮窗 -->
     <div class="flex h-36px text-fff top-150px w-98px catalogue__btn fixed items-center" :style="{
@@ -28,14 +29,39 @@
 
 <script setup lang="ts">
 import ModelCard from './components/ModelCard.vue';
+import MBackTop from "@/components/m-back-top/PropBackTop.vue";
 // 引入本地图片
 // const catalogueIcon = import.meta.glob('@/assets/catalogue-icon.svgs')
-
+const contentRef = ref()
 const isShowCatalogue = ref(false)
+const scrollTopH = ref(0)
 
 const onCatalogueClick = () => {
-  console.log('打开目录');
+  Toast('正在开发中！，敬请期待')
 }
+
+
+const onScrollChange = (e: any) => {
+  if (isShowCatalogue.value) {
+    isShowCatalogue.value = false
+  }
+  scrollTopH.value = e.target.scrollTop
+  // 查询 ts 类型
+  // document.querySelector('')?.scroll()
+  console.log(e.target.scrollTop)
+}
+
+const onBindTop = () => {
+  const timeTop = setInterval(() => {
+    // 丝滑
+    contentRef.value.scrollTop = scrollTopH.value -= 50
+    if (scrollTopH.value <= 0) {
+      clearInterval(timeTop)
+    }
+  }, 30)
+}
+
+
 </script>
 
 <style lang="less" scoped>

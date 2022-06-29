@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     MLoading: typeof import('./src/components/m-loading/index.vue')['default']
     MPopupPicker: typeof import('./src/components/m-popup-picker/index.vue')['default']
     MScrollBackTop: typeof import('./src/components/m-scroll-back-top/index.vue')['default']
+    PropBackTop: typeof import('./src/components/m-back-top/PropBackTop.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     VanActionSheet: typeof import('vant/es')['ActionSheet']
