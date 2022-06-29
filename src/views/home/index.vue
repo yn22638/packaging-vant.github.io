@@ -16,7 +16,7 @@
     </div>
     <!-- 目录浮窗 -->
     <div class="flex h-36px text-fff top-150px w-98px catalogue__btn fixed items-center" :style="{
-      right: isShowCatalogue ? '0' : catalogueRight,
+      right: isShowCatalogue ? '0' : '-66px',
     }" @click="isShowCatalogue = !isShowCatalogue">
       <img src="@/assets/catalogue-icon.png" class="h-24px mr-2px ml-8px w-25px" />
       <button class="bg-transparent h-20px text-fff text-14px leading-20px" @click.stop="onCatalogueClick">
@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import ModelCard from './components/ModelCard.vue';
-
+// 引入本地图片
 // const catalogueIcon = import.meta.glob('@/assets/catalogue-icon.svgs')
 
 const isShowCatalogue = ref(false)
@@ -36,16 +36,6 @@ const isShowCatalogue = ref(false)
 const onCatalogueClick = () => {
   console.log('打开目录');
 }
-
-const catalogueRight = computed(() => {
-  let clientWidth = 0
-  // wx.getSystemInfo({
-  //   success(res) {
-  //     clientWidth = res.windowWidth
-  //   },
-  // })
-  return clientWidth > 350 ? '-64px' : '-66px'
-})
 </script>
 
 <style lang="less" scoped>
