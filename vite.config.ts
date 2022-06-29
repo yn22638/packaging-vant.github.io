@@ -28,7 +28,7 @@ export default defineConfig({
           ],
         },
       ],
-      dts: './src/types/auto-imports.d.ts',
+      dts: './src/types/auto-imports.d.ts', // 生成 auto-import.d.ts 全局声明
     }),
   ],
   //设置的别名

@@ -1,28 +1,57 @@
-# ViteV3Phone
+# 封装组件
+
 ![example workflow](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
 ![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 ![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=feature-1)
 ![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
+**注释通过 ui 框架或者一些插件，再或者纯手动封装的组件，通过自己的需求，去实现，并且写上详细的说明，供大家使用**
 
-#### 介绍
+### 技术栈
 
-h5 项目
-主要采用 vue+vite+ts
-ui 框架采用 vant
-echrts 采用 antv
+**具体用到的技术栈，主要有**
 
-#### 自动生成图片
+- vue3
+- vant3
+- Vite
+- TypeScript
+- AntV
+- Pinia
+- Windicss
+- Moment
+- Vueuse
+- Volar
 
-[地址](https://picsum.photos/)
+### 插件
 
-```
-易于使用，时尚的占位符
-只需在我们的 URL 后添加您想要的图像尺寸（宽度和高度），您就会得到一张随机图像。
-https://picsum.photos/200/300
+**接下来说一说用到了哪些插件，及为什么使用，带来了哪些好处**
 
-要获得方形图像，只需添加大小。
-https://picsum.photos/200
-```
+1. unplugin-auto-import
+   📝
+
+   - 用了这个以后就直接解放双手，自动导入` composition api`` 和 生成全局 `typescript`说明 主要实现 `
+   - 好处就是以后每个 `vue` 文件里面用到的 `api`，都不需要手动引入了，你用了，他会帮你自动引入，很节省效率,包括一个很明显的例子，就是我用到了 vant，我第一次引入是全局引入，后来觉得不妥，就采用按需引入（也需要自己手动引入用到的插件，在配置到 main 里，很麻烦），但是后来发现这个插件，就直接用了这个插件，三俩下配置下就好了，
+   - 具体配置就是在 ` vite.config.ts`` 里面配置，先去引入对应的实例，然后在 `defineConfig`里面配置 `AutoImport`，我的配置在下面，然后具体配置请看[文档](https://github.com/antfu/unplugin-auto-import)
+
+   ```TypeScript
+   import vue from '@vitejs/plugin-vue'
+   import AutoImport from 'unplugin-auto-import/vite'
+   AutoImport({
+      imports: [
+        'vue',
+        {
+          vant: [
+            // 像 Notify 需要在此处引入，要不打包以后没作用
+            'Toast', // import { Toast } from 'vant'
+            'Dialog', // import { Dialog } from 'vant'
+          ],
+        },
+      ],
+      dts: './src/types/auto-imports.d.ts', // 生成 auto-import.d.ts 全局声明
+    }),
+   ```
+
+2. unplugin-vue-components
+   [地址](https://github.com/antfu/unplugin-vue-components)
 
 #### 启动
 
@@ -35,12 +64,25 @@ https://picsum.photos/200
 - pnpm build
 - 本地会生成一个 dist 文件，由于 vite\
 
-#### 在线预览
+### 在线预览
 
 - 我这里是使用的 http-server
   > cd dist -> http-server
 
-#### windi css
+### 自动生成图片
+
+[地址](https://picsum.photos/)
+
+```
+易于使用，时尚的占位符
+只需在我们的 URL 后添加您想要的图像尺寸（宽度和高度），您就会得到一张随机图像。
+https://picsum.photos/200/300
+
+要获得方形图像，只需添加大小。
+https://picsum.photos/200
+```
+
+### windi css
 
 [地址](https://windicss.org/)
 
@@ -65,6 +107,6 @@ https://picsum.photos/200
 5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
 6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
 
-
 #### 结尾
+
 具体的介绍都在这里，如果您感觉这些内容对您有帮助的话，麻烦点个 star(⭐️) 吧
