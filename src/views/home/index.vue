@@ -48,7 +48,6 @@ const onScrollChange = (e: any) => {
   scrollTopH.value = e.target.scrollTop
   // 查询 ts 类型
   // document.querySelector('')?.scroll()
-  console.log(e.target.scrollTop)
 }
 
 const onBindTop = () => {

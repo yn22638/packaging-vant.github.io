@@ -20,8 +20,6 @@ const emits = defineEmits<{
 watch(
   () => props.scrollTopH,
   (newVal, oldVal) => {
-    console.log(newVal);
-
     isShowBackTop.value = newVal > 60
   }
 )
