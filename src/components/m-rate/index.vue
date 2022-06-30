@@ -33,7 +33,7 @@ const iconList = ref<IconInfo[]>([])
 
 
 const onRateClick = (count: number) => {
-  if (count === 0 && iconList.value[0].isChecked) { Toast('最低给一颗星呢亲~') }
+  if (!count && iconList.value[0].isChecked && !iconList.value[1].isChecked) { Toast('最低给一颗星呢亲~') }
   iconList.value = iconList.value.map((item, index) => ({ ...item, isChecked: index <= count }))
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <m-rate></m-rate>
+    <m-rate :count="6"></m-rate>
   </div>
 </template>
 
