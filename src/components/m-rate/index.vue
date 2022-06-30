@@ -1,8 +1,10 @@
 <template>
-  <div class="p-20px rate">
+  <div class="rate">
     <div class="flex items-center">
       <img :src="item.isChecked ? item.fillUrl : item.emptyUrl" v-for="(item, index) in iconList" :key="index"
-        class="h-20px mx-3px w-20px" @click="onRateClick(index)" />
+        :class="['mx-3px']" :style="{
+          width: `${width}px`, height: `${height}px`
+        }" @click="onRateClick(index)" />
     </div>
   </div>
 </template>
@@ -18,8 +20,12 @@ interface IconInfo {
 
 const props = withDefaults(defineProps<{
   count?: number
+  width?: number | string
+  height?: number | string
 }>(), {
-  count: 5
+  count: 5,
+  width: 20,
+  height: 20,
 })
 
 const iconInfo = ref(

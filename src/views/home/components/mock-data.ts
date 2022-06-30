@@ -26,14 +26,14 @@ const modelList: ModelInfo[] = [
     label: '采用 overlay 与 loading 一起实现的页面加载，或局部加载',
   },
   {
-    name: '', // PopupArea
-    title: 'action-sheet',
-    label: '底部弹起的模态面板(可供选择不同的内容，也可以弹出指定文本内容)',
+    name: 'Rate', //
+    title: 'm-rate',
+    label: '手动封装rate评分组件，进入查看效果',
   },
   {
     name: '',
-    title: 'm-popup-picker',
-    label: '基于 popup 与 picker 二次封装',
+    title: 'action-sheet',
+    label: '底部弹起的模态面板(可供选择不同的内容，也可以弹出指定文本内容)',
   },
   {
     name: '',
