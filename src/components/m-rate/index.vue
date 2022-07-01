@@ -10,8 +10,8 @@
 </template>
 
 <script setup lang="ts" name="MRate">
-import emptyUrl from './img/stars-empty.png'
-import fillUrl from './img/stars-fill.png'
+import emptyUrl from '@/assets/stars-empty.png'
+import fillUrl from '@/assets/stars-fill.png'
 interface IconInfo {
   emptyUrl: string
   fillUrl: string
@@ -22,16 +22,19 @@ const props = withDefaults(defineProps<{
   count?: number
   width?: number | string
   height?: number | string
+  emptyUrl: string
+  fillUrl: string
 }>(), {
   count: 5,
   width: 20,
   height: 20,
+  emptyUrl: ''
 })
 
 const iconInfo = ref(
   {
-    emptyUrl,
-    fillUrl,
+    emptyUrl: props.emptyUrl || emptyUrl,
+    fillUrl: props.fillUrl || fillUrl,
     isChecked: false,
   }
 )
