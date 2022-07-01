@@ -38,6 +38,12 @@
       </van-collapse-item>
     </van-collapse>
     <van-collapse v-model="activeNames" accordion @change="onClickChange">
+      <van-collapse-item title="禁用状态" name="7">
+        <p class="mb-4px">禁用</p>
+        <m-rate is-disable></m-rate>
+      </van-collapse-item>
+    </van-collapse>
+    <van-collapse v-model="activeNames" accordion @change="onClickChange">
       <van-collapse-item title="自定义颜色" name="4">
         <p class="mb-4px">正在开发中~</p>
         <!-- <m-rate></m-rate> -->
