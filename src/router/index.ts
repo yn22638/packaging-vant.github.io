@@ -118,6 +118,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Rate',
     component: () => import('@/views/rate/index.vue'),
   },
+  {
+    path: '/progress',
+    name: 'Progress',
+    component: () => import('@/views/progress/index.vue'),
+  },
 ]
 const router = createRouter({
   // 设置为history模式，就是路径里面没有#,  createWebHashHistory 是默认的，括号里面的就是基础路径，可以理解为项目名称，就是请求路径的基础url
