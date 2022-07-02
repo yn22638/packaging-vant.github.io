@@ -1,0 +1,1 @@
+import{g as e,C as t,o,c as s}from"./index.de85d9d8.js";const d={class:""},r=e({setup(e){t((()=>{setTimeout((()=>{document.body.innerHTML="hello vue3"}),1e3)}));return new Proxy({text:"hello world"},{get:(e,t)=>e[t],set:(e,t,o)=>(e[t]=o,!0)}),(e,t)=>(o(),s("div",d))}});export{r as default};
