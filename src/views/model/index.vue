@@ -27,4 +27,17 @@ const onClick = () => { }
 </script>
 
 <style lang="less" scoped>
+.xxx {
+  &__demo {
+    background-color: #f7f8fa;
+  }
+
+  &__title {
+    color: #323233;
+  }
+
+  &__introduce {
+    color: #c8c9cc;
+  }
+}
 </style>
