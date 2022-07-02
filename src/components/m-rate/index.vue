@@ -22,9 +22,9 @@ const props = withDefaults(defineProps<{
   count?: number
   width?: number | string
   height?: number | string
-  emptyUrl: string
-  fillUrl: string
-  isDisable: boolean
+  emptyUrl?: string
+  fillUrl?: string
+  isDisable?: boolean
 }>(), {
   count: 5,
   width: 20,

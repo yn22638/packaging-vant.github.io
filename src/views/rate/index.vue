@@ -50,7 +50,6 @@
       </van-collapse-item>
     </van-collapse>
   </div>
-  <!-- <m-rate :count="6"></m-rate> -->
 </template>
 
 <script setup lang="ts">

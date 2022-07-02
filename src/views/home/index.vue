@@ -1,6 +1,7 @@
 <template>
   <div class="flex h-full home">
-    <div class="flex flex-shrink w-full p-16px home-header justify-between overflow-hidden ai-center">
+    <div
+      class="flex flex-shrink font-bold w-full p-16px text-22px home-header justify-between overflow-hidden ai-center">
       目录
     </div>
     <div class="flex-1 overflow-auto" @scroll="onScrollChange" id="content-box" ref="contentRef">
