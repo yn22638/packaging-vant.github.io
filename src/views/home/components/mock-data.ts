@@ -11,9 +11,9 @@ const modelList: ModelInfo[] = [
     label: '基于 popup 与 picker 二次封装（支持选择时间，地区，天气，节日等）',
   },
   {
-    name: '', // PopupForm
-    title: 'm-popup-form',
-    label: 'popup 弹出 form 表单元素，并保存提交',
+    name: 'Progress', // PopupForm
+    title: 'm-progress',
+    label: 'progress加载条',
   },
   {
     name: 'Chat',

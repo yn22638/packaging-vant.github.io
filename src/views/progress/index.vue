@@ -9,12 +9,17 @@
 
     <div class="px-20px pb-20px">
       <p class="pb-20px">默认样式</p>
-      <m-progress />
+      <m-progress load-state="10" />
     </div>
 
     <div class="px-20px pb-20px">
       <p class="pb-20px">给他加一个计时器，让他进行加载效果</p>
       <m-progress :load-state="loadState" />
+    </div>
+
+    <div class="px-20px pb-20px">
+      <p class="pb-20px">加载条高度</p>
+      <m-progress load-state="40" :height="8" />
     </div>
 
     <div class="px-20px pb-20px">
