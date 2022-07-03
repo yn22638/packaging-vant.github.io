@@ -37,7 +37,6 @@ watch(
   () => {
     nextTick(() => {
       const width = progressRef.value!.clientWidth - titleRef.value!.clientWidth
-      console.log(width, 'width');
       if (+loadState.value > 100) {
         progressWidth.value = width
         return

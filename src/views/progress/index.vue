@@ -7,9 +7,23 @@
       </p>
     </div>
 
-    <p class="p-16px">默认样式</p>
-    <div class="px-20px">
+    <div class="px-20px pb-20px">
+      <p class="pb-20px">默认样式</p>
       <m-progress />
+    </div>
+
+    <div class="px-20px pb-20px">
+      <p class="pb-20px">给他加一个计时器，让他进行加载效果</p>
+      <m-progress :load-state="loadState" />
+    </div>
+
+    <div class="px-20px pb-20px">
+      <p class="pb-20px">自定义颜色</p>
+      <m-progress load-state="30" load-ground-color="red" />
+      <br>
+      <m-progress load-state="50" load-ground-color="green" ground-color="#969799" />
+      <br>
+      <m-progress load-state="70" load-ground-color="orange" />
     </div>
     <!-- :load-state="  " -->
   </div>
@@ -35,7 +49,7 @@ onMounted(() => {
     if (loadState.value >= 100) {
       clearInterval(timer)
     }
-  }, 200)
+  }, 100)
 })
 </script>
 
