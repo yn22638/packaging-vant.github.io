@@ -22,27 +22,32 @@ const props = withDefaults(
     loadGroundColor?: string
   }>(), {
   height: 4,
-  loadState: 20,
+  loadState: 0,
   groundColor: '#ebedf0',
   loadGroundColor: '#1989fa'
 })
 
+const { loadState } = toRefs(props)
 const progressRef = ref<HTMLElement>()
 const titleRef = ref<HTMLElement>()
 const progressWidth = ref(0)
 
-watch(() => props.loadState, () => {
-  nextTick(() => {
-    const width = progressRef.value!.clientWidth - titleRef.value!.clientWidth
-    console.log(width, 'width');
-    if (+props.loadState > 100) {
-      progressWidth.value = width
-      return
-    }
-    progressWidth.value = width * (+props.loadState / 100)
-    console.log(progressWidth.value, 'progressWidth.value');
-  })
-})
+watch(
+  loadState,
+  () => {
+    nextTick(() => {
+      const width = progressRef.value!.clientWidth - titleRef.value!.clientWidth
+      console.log(width, 'width');
+      if (+loadState.value > 100) {
+        progressWidth.value = width
+        return
+      }
+      progressWidth.value = width * (+loadState.value / 100)
+    })
+  },
+  { deep: true }
+)
+
 </script>
 
 <style lang="less" scoped>
