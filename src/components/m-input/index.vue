@@ -13,7 +13,7 @@ interface PropInfo {
   value?: string, type?: string, isShowTextLength?: boolean, maxlength?: string | number, placeholder?: string
 }
 interface EmitInfo {
-  (event: 'blur', value: string): FocusEvent
+  (event: 'on-blur', value: string): FocusEvent
 }
 const props = withDefaults(
   defineProps<PropInfo>(),
@@ -29,7 +29,7 @@ const props = withDefaults(
 const emits = defineEmits<EmitInfo>()
 
 const onBlur = () => {
-  emits('blur', props.value)
+  emits('on-blur', props.value)
 }
 </script>
 
