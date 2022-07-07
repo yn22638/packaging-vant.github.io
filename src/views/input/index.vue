@@ -7,10 +7,12 @@
     </div>
     <van-collapse v-model="activeNames" accordion @change="onClickChange">
       <van-collapse-item title="默认样式" name="1">
-        <m-input :value="defaultValue" :is-show-text-length="false" @on-blur="onBlurDeafult"></m-input>
+        <m-input v-model.modelValue="defaultValue" :is-show-text-length="false"></m-input>
+        <van-button type="primary" size="mini" @click="onConfirmBtnClick(defaultValue)">提交</van-button>
       </van-collapse-item>
       <van-collapse-item title="统计输入字数/最大输入字数" name="2">
-        <m-input :value="maxLengthValue" @on-blur="onBlurMaxLength"></m-input>
+        <m-input v-model.modelValue="maxLengthValue"></m-input>
+        <van-button type="primary" size="mini" @click="onConfirmBtnClick(maxLengthValue)">提交</van-button>
       </van-collapse-item>
     </van-collapse>
   </div>
@@ -26,15 +28,13 @@ const maxLengthValue = ref('')
 const onClickChange = (index: number) => {
   activeNames.value = `${index}`
 }
-const onBlurDeafult = (value: string) => {
-  defaultValue.value = value
+
+const onConfirmBtnClick = (value: string) => {
   Toast(`当前输入框的值是：${value}`)
 }
-const onBlurMaxLength = (value: string) => {
-  maxLengthValue.value = value
-  Toast(`当前输入框的值是：${value}`)
-}
-const onClick = () => { }
+// watch(defaultValue, () => {
+//   console.log(defaultValue.value);
+// })
 </script>
 
 <style lang="less" scoped>

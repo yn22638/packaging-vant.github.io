@@ -1,24 +1,24 @@
 <template>
   <div class="">
-    <input class="h-42px w-full" v-model="value" :type="type" :maxlength="maxlength" :placeholder="placeholder"
-      @blur="onBlur">
+    <input class="h-42px w-full" v-model="modelValue" :type="type" :maxlength="maxlength" :placeholder="placeholder"
+      @input="inputChange">
     <p v-if="isShowTextLength" class="text-right">
-      {{ `${value.length}/${maxlength}` }}
+      {{ `${modelValue.length}/${maxlength}` }}
     </p>
   </div>
 </template>
 
 <script setup lang="ts">
 interface PropInfo {
-  value?: string, type?: string, isShowTextLength?: boolean, maxlength?: string | number, placeholder?: string
+  modelValue?: string, type?: string, isShowTextLength?: boolean, maxlength?: string | number, placeholder?: string
 }
-interface EmitInfo {
-  (event: 'on-blur', value: string): void
-}
+// interface EmitInfo {
+//   (event: 'on-blur', modelValue: string): void
+// }
 const props = withDefaults(
   defineProps<PropInfo>(),
   {
-    value: '',
+    modelValue: '',
     type: 'text',
     isShowTextLength: true,
     maxlength: 50,
@@ -26,10 +26,10 @@ const props = withDefaults(
   }
 )
 
-const emits = defineEmits<EmitInfo>()
+const emits = defineEmits(['update:modelValue'])
 
-const onBlur = () => {
-  emits('on-blur', props.value)
+const inputChange = (event: Event) => {
+  emits('update:modelValue', (event.target as any).value)
 }
 </script>
 
