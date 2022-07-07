@@ -1,0 +1,1 @@
+import{g as s,o as e,c as a,a as l}from"./index.87b3e9d7.js";const p={class:"flex p-20px justify-between"},t=[l("p",null,"今天：",-1),l("p",null,"吃什么！",-1)],n=s({setup:s=>(s,l)=>(e(),a("div",p,t))});export{n as default};
