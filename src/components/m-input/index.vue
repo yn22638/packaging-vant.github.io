@@ -13,7 +13,7 @@ interface PropInfo {
   value?: string, type?: string, isShowTextLength?: boolean, maxlength?: string | number, placeholder: string
 }
 interface EmitInfo {
-  (event: 'blur', value: string): void
+  (event: 'blur', value: string): FocusEvent
 }
 const props = withDefaults(
   defineProps<PropInfo>(),
