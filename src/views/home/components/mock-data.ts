@@ -31,9 +31,10 @@ const modelList: ModelInfo[] = [
     label: '手动封装rate评分组件，进入查看效果',
   },
   {
-    name: '',
-    title: 'action-sheet',
-    label: '底部弹起的模态面板(可供选择不同的内容，也可以弹出指定文本内容)',
+    name: 'Input',
+    title: 'm-input',
+    label:
+      '通过原生 input 自带的一些属性与事件方法，进行二次封装，从而改变样式与产生不同的效果',
   },
   {
     name: '',
