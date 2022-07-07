@@ -7,11 +7,11 @@
     </div>
     <van-collapse v-model="activeNames" accordion @change="onClickChange">
       <van-collapse-item title="默认样式" name="1">
-        <m-input v-model.modelValue="defaultValue" :is-show-text-length="false"></m-input>
+        <m-input v-model="defaultValue" :is-show-text-length="false"></m-input>
         <van-button type="primary" size="mini" @click="onConfirmBtnClick(defaultValue)">提交</van-button>
       </van-collapse-item>
       <van-collapse-item title="统计输入字数/最大输入字数" name="2">
-        <m-input v-model.modelValue="maxLengthValue"></m-input>
+        <m-input v-model="maxLengthValue"></m-input>
         <van-button type="primary" size="mini" @click="onConfirmBtnClick(maxLengthValue)">提交</van-button>
       </van-collapse-item>
     </van-collapse>
