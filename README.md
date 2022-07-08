@@ -4,7 +4,10 @@
 ![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 ![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=feature-1)
 ![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
+
 **注释通过 ui 框架或者一些插件，再或者纯手动封装的组件，通过自己的需求，去实现，并且写上详细的说明，供大家使用**
+
+[预览地址](https://yn22638.github.io/packaging-vant.github.io/)
 
 ### 技术栈
 
