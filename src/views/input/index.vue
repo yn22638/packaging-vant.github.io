@@ -14,6 +14,16 @@
         <m-input v-model="maxLengthValue"></m-input>
         <van-button type="primary" size="mini" @click="onConfirmBtnClick(maxLengthValue)">提交</van-button>
       </van-collapse-item>
+      <van-collapse-item title="只读/禁用状态" name="3">
+        <p class="pb-12px">通过 readonly 将输入框设置为只读状态，通过 disabled 将输入框设置为禁用状态。</p>
+        <m-input v-model="disabledValue" disabled></m-input>
+        <van-button type="primary" size="mini" @click="onConfirmBtnClick(disabledValue)">提交</van-button>
+      </van-collapse-item>
+      <van-collapse-item title="展示 label" name="4">
+        <p class="pb-12px">通过 label 标签，将传入的值显示出来。</p>
+        <m-input v-model="labelValue" label="我是 label" isShowLabel></m-input>
+        <van-button type="primary" size="mini" @click="onConfirmBtnClick(labelValue)">提交</van-button>
+      </van-collapse-item>
     </van-collapse>
   </div>
 </template>
@@ -23,6 +33,8 @@ import MInput from "@/components/m-input/index.vue";
 const activeNames = ref('1')
 const defaultValue = ref('')
 const maxLengthValue = ref('')
+const disabledValue = ref('你好啊，🐻 弟')
+const labelValue = ref('')
 
 // collapse click
 const onClickChange = (index: number) => {
