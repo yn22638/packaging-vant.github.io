@@ -3,7 +3,7 @@
     <!-- :style="{'text-align':inputAlign}" -->
     <!-- :disabled="disabled" -->
     <div class="flex item-center justify-center">
-      <label for="" v-if="isShowLabel" class="flex-shrink-0 mr-12px ">{{ label }}</label>
+      <label for="" v-if="isShowLabel" class="flex-shrink-0 mr-12px label">{{ label }}</label>
       <input class="flex-1 h-42px" v-model="modelValue" :type="type" :maxlength="maxlength" :placeholder="placeholder"
         :readonly="disabled" @input="inputChange">
     </div>
@@ -51,5 +51,10 @@ const inputChange = (event: Event) => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
+.label {
+  color: #323233;
+  position: relative;
+  transform: translateY(27%);
+}
 </style>

@@ -21,7 +21,7 @@
       </van-collapse-item>
       <van-collapse-item title="展示 label" name="4">
         <p class="pb-12px">通过 label 标签，将传入的值显示出来。</p>
-        <m-input v-model="labelValue" label="我是 label" isShowLabel></m-input>
+        <m-input v-model="labelValue" isShowLabel></m-input>
         <van-button type="primary" size="mini" @click="onConfirmBtnClick(labelValue)">提交</van-button>
       </van-collapse-item>
     </van-collapse>
