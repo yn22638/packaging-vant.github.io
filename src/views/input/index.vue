@@ -24,6 +24,25 @@
         <m-input v-model="labelValue" isShowLabel></m-input>
         <van-button type="primary" size="mini" @click="onConfirmBtnClick(labelValue)">提交</van-button>
       </van-collapse-item>
+      <van-collapse-item title="自定义类型" name="5">
+        <div class="mb-16px">
+          <p class="pb-12px">输入的内容会以密码格式显示</p>
+          <m-input v-model="passwordValue" isShowLabel label="密码" type="password" placeholder="请输入密码"
+            :is-show-text-length="false"></m-input>
+          <van-button type="primary" size="mini" @click="onConfirmBtnClick(passwordValue)">提交</van-button>
+        </div>
+        <div class="mb-16px">
+          <p class="pb-12px">输入的内容会以数字形式显示</p>
+          <m-input v-model="numberValue" isShowLabel label="数字" type="number" placeholder="请输入数字"
+            :is-show-text-length="false"></m-input>
+          <van-button type="primary" size="mini" @click="onConfirmBtnClick(numberValue)">提交</van-button>
+        </div>
+      </van-collapse-item>
+      <van-collapse-item title="高度自适应" name="6">
+        <p class="pb-12px">textarea文本框，height动态控制它的高度</p>
+        <m-input v-model="labelValue" isShowLabel type="textarea" height="70"></m-input>
+        <van-button type="primary" size="mini" @click="onConfirmBtnClick(labelValue)">提交</van-button>
+      </van-collapse-item>
     </van-collapse>
   </div>
 </template>
@@ -35,6 +54,8 @@ const defaultValue = ref('')
 const maxLengthValue = ref('')
 const disabledValue = ref('你好啊，🐻 弟')
 const labelValue = ref('')
+const passwordValue = ref('')
+const numberValue = ref('')
 
 // collapse click
 const onClickChange = (index: number) => {

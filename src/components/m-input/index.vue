@@ -3,9 +3,13 @@
     <!-- :style="{'text-align':inputAlign}" -->
     <!-- :disabled="disabled" -->
     <div class="flex item-center justify-center">
-      <label for="" v-if="isShowLabel" class="flex-shrink-0 mr-12px label">{{ label }}</label>
+      <label for="" v-if="isShowLabel" class="flex-shrink-0 mr-12px"
+        :class="type !== 'textarea' ? 'label' : 'textarea-label'">{{ label }}</label>
       <input class="flex-1 h-42px" v-model="modelValue" :type="type" :maxlength="maxlength" :placeholder="placeholder"
-        :readonly="disabled" @input="inputChange">
+        :readonly="disabled" @input="inputChange" v-if="type != 'textarea'">
+      <!-- autoHeight="true" -->
+      <textarea :class="['flex-1', 'pr-10px']" name="" rows="1" :placeholder="placeholder"
+        :style="{ resize: 'none', outline: 'none', height: `${height}px` }" v-else></textarea>
     </div>
     <p v-if="isShowTextLength" class="text-right">
       {{ `${modelValue.length}/${maxlength}` }}
@@ -23,7 +27,8 @@ interface PropInfo {
   placeholder?: string,
   inputAlign?: string,
   disabled?: boolean,
-  isShowLabel?: boolean
+  isShowLabel?: boolean,
+  height?: string | number
 }
 // interface EmitInfo {
 //   (event: 'on-blur', modelValue: string): void
@@ -39,7 +44,8 @@ const props = withDefaults(
     placeholder: '请输入内容',
     inputAlign: 'left',
     disabled: false,
-    isShowLabel: false
+    isShowLabel: false,
+    height: '42',
   }
 )
 // type TextAlignProperty = Globals | "center" | "end" | "justify" | "left" | "match-parent" | "right" | "start";
@@ -56,5 +62,9 @@ const inputChange = (event: Event) => {
   color: #323233;
   position: relative;
   transform: translateY(27%);
+}
+
+.textarea-label {
+  color: #323233;
 }
 </style>
