@@ -11,18 +11,18 @@
         <van-button type="primary" size="mini" @click="onConfirmBtnClick(defaultValue)">提交</van-button>
       </van-collapse-item>
       <van-collapse-item title="统计输入字数/最大输入字数" name="2">
-        <m-input v-model="maxLengthValue"></m-input>
+        <m-input v-model="maxLengthValue" :text-length="maxLengthValue.length"></m-input>
         <van-button type="primary" size="mini" @click="onConfirmBtnClick(maxLengthValue)">提交</van-button>
       </van-collapse-item>
       <van-collapse-item title="只读/禁用状态" name="3">
         <p class="pb-12px">通过 readonly 将输入框设置为只读状态，通过 disabled 将输入框设置为禁用状态。</p>
-        <m-input v-model="disabledValue" disabled></m-input>
+        <m-input v-model="disabledValue" disabled  :text-length="disabledValue.length"></m-input>
         <van-button type="primary" size="mini" @click="onConfirmBtnClick(disabledValue)">提交</van-button>
       </van-collapse-item>
       <van-collapse-item title="展示 label" name="4">
         <p class="pb-12px">通过 label 标签，将传入的值显示出来。</p>
-        <m-input v-model="labelValue" isShowLabel></m-input>
-        <van-button type="primary" size="mini" @click="onConfirmBtnClick(labelValue)">提交</van-button>
+        <m-input v-model="labelValue" isShowLabel  :text-length="labelValue.length"></m-input>
+        <van-button type="primary" size="mini"  @click="onConfirmBtnClick(labelValue)">提交</van-button>
       </van-collapse-item>
       <van-collapse-item title="自定义类型" name="5">
         <div class="mb-16px">
@@ -40,7 +40,7 @@
       </van-collapse-item>
       <van-collapse-item title="高度自适应" name="6">
         <p class="pb-12px">textarea文本框，height动态控制它的高度</p>
-        <m-input v-model="labelValue" isShowLabel type="textarea" height="70"></m-input>
+        <m-input v-model="labelValue" isShowLabel type="textarea" height="70" :text-length="labelValue.length"></m-input>
         <van-button type="primary" size="mini" @click="onConfirmBtnClick(labelValue)">提交</van-button>
       </van-collapse-item>
     </van-collapse>

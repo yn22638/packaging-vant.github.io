@@ -12,7 +12,7 @@
         :style="{ resize: 'none', outline: 'none', height: `${height}px` }" v-else></textarea>
     </div>
     <p v-if="isShowTextLength" class="text-right">
-      {{ `${modelValue.length}/${maxlength}` }}
+      {{ `${textLength}/${maxlength}` }}
     </p>
   </div>
 </template>
@@ -24,6 +24,7 @@ interface PropInfo {
   type?: string,
   isShowTextLength?: boolean,
   maxlength?: string | number,
+  textLength?: string | number,
   placeholder?: string,
   inputAlign?: string,
   disabled?: boolean,
@@ -41,11 +42,12 @@ const props = withDefaults(
     label: '文本',
     isShowTextLength: true,
     maxlength: 50,
+    textLength:0,
     placeholder: '请输入内容',
     inputAlign: 'left',
     disabled: false,
     isShowLabel: false,
-    height: '42',
+    height: '42'
   }
 )
 // type TextAlignProperty = Globals | "center" | "end" | "justify" | "left" | "match-parent" | "right" | "start";
