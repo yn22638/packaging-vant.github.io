@@ -2,9 +2,9 @@
   <div class="relative">
     <div class="w-full overflow-hidden" ref="progressRef"
       :style="{ height: `${height}px`, backgroundColor: groundColor, borderRadius: `${height}px` }">
-      <p class="h-full" :style="{ width: `${loadState}%`, backgroundColor: loadGroundColor }"></p>
+      <p class="h-full progressing" :style="{ width: `${loadState}%`, backgroundColor: loadGroundColor }"></p>
     </div>
-    <div ref="titleRef" class="rounded-full text-fff text-center min-w-2.8em absolute box-border"
+    <div ref="titleRef" class="rounded-full text-fff text-center min-w-2.8em progressing absolute box-border"
       :style="{ left: `${progressWidth}px`, backgroundColor: loadGroundColor, top: '-10px' }">
       <slot name="title">
         {{ `${loadState}%` }}
@@ -27,24 +27,29 @@ const props = withDefaults(
   loadGroundColor: '#1989fa'
 })
 
-const { loadState } = toRefs(props)
+// const { loadState } = toRefs(props)
 const progressRef = ref<HTMLElement>()
 const titleRef = ref<HTMLElement>()
 const progressWidth = ref(0)
 
+onMounted(()=>{
+  console.log(props.loadState,'onMounted');
+  console.log(progressWidth.value,'onMounted');
+})
+
 watch(
-  loadState,
+  ()=>props.loadState,
   () => {
-    nextTick(() => {
+      console.log(props.loadState,'loadState');
       const width = progressRef.value!.clientWidth - titleRef.value!.clientWidth
-      if (+loadState.value > 100) {
+      if (+props.loadState > 100) {
         progressWidth.value = width
         return
       }
-      progressWidth.value = width * (+loadState.value / 100)
-    })
+      progressWidth.value = width * (+props.loadState / 100)
+      console.log(progressWidth.value,'progressWidth');
   },
-  { deep: true }
+  { deep: true },
 )
 
 </script>
@@ -52,5 +57,8 @@ watch(
 <style lang="less" scoped>
 .transform {
   transform: translate(-50%, 50%)
+}
+.progressing{
+  transition: all 0.5s ease;
 }
 </style>

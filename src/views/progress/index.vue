@@ -30,6 +30,13 @@
       <br>
       <m-progress load-state="70" load-ground-color="orange" />
     </div>
+
+    <div class="px-20px pb-20px">
+      <p class="pb-20px">增减</p>
+      <m-progress class="pb-10px" :load-state="loadStateCount" :height="8" load-ground-color="#68D89E" />
+      <van-button type="primary" size="mini" @click="onAddLoadState('add')">+20%</van-button>
+      <van-button type="primary" size="mini" @click="onAddLoadState('sub')">-20%</van-button>
+    </div>
     <!-- :load-state="  " -->
   </div>
 </template>
@@ -40,10 +47,19 @@ import MProgress from "@/components/m-progress/index.vue";
 const activeNames = ref('1')
 
 const loadState = ref(0)
+const loadStateCount = ref(30)
 
 // collapse click
 const onClickChange = (index: number) => {
   activeNames.value = `${index}`
+}
+
+const onAddLoadState = (type:string)=>{
+  if(type==='add'){
+    loadStateCount.value = loadStateCount.value > 80 ? 100 : loadStateCount.value + 20
+  }else{
+    loadStateCount.value = loadStateCount.value < 20 ? 0 : loadStateCount.value - 20
+  }
 }
 
 const onClick = () => { }
