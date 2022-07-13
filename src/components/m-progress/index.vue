@@ -2,7 +2,7 @@
   <div class="relative">
     <div class="w-full overflow-hidden" ref="progressRef"
       :style="{ height: `${height}px`, backgroundColor: groundColor, borderRadius: `${height}px` }">
-      <p class="h-full progressing" :style="{ width: `${loadState}%`, backgroundColor: loadGroundColor }"></p>
+      <p class="h-full progressing" :style="{ width: loadStateWeight, backgroundColor: loadGroundColor }"></p>
     </div>
     <div ref="titleRef" class="rounded-full text-fff text-center min-w-2.8em progressing absolute box-border"
       :style="{ left: `${progressWidth}px`, backgroundColor: loadGroundColor, top: '-10px' }">
@@ -31,25 +31,18 @@ const props = withDefaults(
 const progressRef = ref<HTMLElement>()
 const titleRef = ref<HTMLElement>()
 const progressWidth = ref(0)
+const loadStateWeight = ref('0')
 
-onMounted(()=>{
-  console.log(props.loadState,'onMounted');
-  console.log(progressWidth.value,'onMounted');
-})
-
-watch(
-  ()=>props.loadState,
-  () => {
-      console.log(props.loadState,'loadState');
-      const width = progressRef.value!.clientWidth - titleRef.value!.clientWidth
-      if (+props.loadState > 100) {
-        progressWidth.value = width
-        return
-      }
-      progressWidth.value = width * (+props.loadState / 100)
-      console.log(progressWidth.value,'progressWidth');
-  },
-  { deep: true },
+watchEffect(() => {
+  const width = progressRef.value!.clientWidth - titleRef.value!.clientWidth
+  if (+props.loadState > 100) {
+    progressWidth.value = width
+    return
+  }
+  progressWidth.value = width * (+props.loadState / 100)
+  loadStateWeight.value = `${props.loadState}%`
+},
+  { flush: 'post' }
 )
 
 </script>
@@ -58,7 +51,8 @@ watch(
 .transform {
   transform: translate(-50%, 50%)
 }
-.progressing{
+
+.progressing {
   transition: all 0.5s ease;
 }
 </style>
