@@ -4,7 +4,8 @@
       <img :src="item.isChecked ? item.fillUrl : item.emptyUrl" v-for="(item, index) in iconList" :key="index"
         :class="['mx-3px']" :style="{
           width: `${width}px`, height: `${height}px`
-        }" @click="onRateClick(index)" />
+        }" :data-index="index" @touchstart="onTouchstartChange" @touchend="onTouchendChange"
+        @click="onRateClick(index)" />
     </div>
   </div>
 </template>
@@ -47,6 +48,14 @@ const onRateClick = (count: number) => {
   if (props.isDisable) return
   if (!count && iconList.value[0].isChecked && !iconList.value[1].isChecked) { Toast('最低给一颗星呢亲~') }
   iconList.value = iconList.value.map((item, index) => ({ ...item, isChecked: index <= count }))
+}
+
+const onTouchstartChange = (e: any) => {
+  console.log(e, 'ee');
+}
+
+const onTouchendChange = (e: any) => {
+  console.log(e, 'ee');
 }
 
 onMounted(() => {
