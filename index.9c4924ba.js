@@ -1,0 +1,1 @@
+import{_ as a,g as e,b1 as s,A as t,C as r}from"./index.04541df7.js";var l=a(e({setup(a){s((a=>({"7aae6a8f":l}))),t(!0);const e=t(5),l="red";return r((()=>{const a=setInterval((()=>{e.value--,0===e.value&&clearInterval(a)}),1e3)})),(a,e)=>null}}),[["__scopeId","data-v-d7e747b8"]]);export{l as default};
