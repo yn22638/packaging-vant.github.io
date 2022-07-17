@@ -33,6 +33,7 @@ const titleRef = ref<HTMLElement>()
 const progressWidth = ref(0)
 const loadStateWeight = ref('0')
 
+// 此处用 watch 会有问题
 watchEffect(() => {
   const width = progressRef.value!.clientWidth - titleRef.value!.clientWidth
   if (+props.loadState > 100) {

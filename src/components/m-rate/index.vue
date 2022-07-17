@@ -1,10 +1,10 @@
 <template>
   <div class="rate">
-    <div :class="['flex', 'items-center', `${isDisable ? 'rate-disable' : 'rate-select'}`]">
+    <div :class="['inline-flex', 'items-center', `${isDisable ? 'rate-disable' : 'rate-select'}`]" ref="rateRef">
       <img :src="item.isChecked ? item.fillUrl : item.emptyUrl" v-for="(item, index) in iconList" :key="index"
         :class="['mx-3px']" :style="{
           width: `${width}px`, height: `${height}px`
-        }" :data-index="index" @touchstart="onTouchstartChange" @touchend="onTouchendChange"
+        }" :data-index="index" @touchstart="onTouchstartChange" @touchmove="onTouchmoveChange"
         @click="onRateClick(index)" />
     </div>
   </div>
@@ -50,12 +50,33 @@ const onRateClick = (count: number) => {
   iconList.value = iconList.value.map((item, index) => ({ ...item, isChecked: index <= count }))
 }
 
+const startX = ref(0) // 开始点
+const rateDivWidth = ref(0)// 父组件盒子长度
+const score = ref(0) // 分数
+const rateRef = ref()
+// touch 思路 https://blog.csdn.net/weixin_42860683/article/details/106801618
 const onTouchstartChange = (e: any) => {
-  console.log(e, 'ee');
+  console.log(e, 'onTouchstartChange');
+  if (e && e.touches.length === 1) {
+    rateDivWidth.value = rateRef.value.offsetWidth
+    startX.value = e.touches[0].clientX
+  }
 }
 
-const onTouchendChange = (e: any) => {
-  console.log(e, 'ee');
+const onTouchmoveChange = (e: any) => {
+  console.log(e, 'onTouchmoveChange');
+  score.value = 0
+  if (e) {
+    let newScore = parseInt(`${(e.touches[0].clientX - startX.value) / rateDivWidth.value * 10}`)
+    score.value = newScore > 10 ? 10 : newScore
+    console.log(score.value, 'score.value');
+    console.log(rateDivWidth.value, 'rateDivWidth.value');
+  }
+  if (score.value > 0) {
+    iconList.value = iconList.value.map((item, index) => ({ ...item, isChecked: score.value >= index + 1 }))
+  } else {
+    iconList.value = iconList.value.map(item => ({ ...item, isChecked: false }))
+  }
 }
 
 onMounted(() => {
