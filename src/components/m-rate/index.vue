@@ -1,8 +1,8 @@
 <template>
   <div class="rate">
     <div :class="['inline-flex', 'items-center', `${isDisable ? 'rate-disable' : 'rate-select'}`]" ref="rateRef">
-      <img :src="item.isChecked ? item.fillUrl : item.emptyUrl" v-for="(item, index) in iconList" :key="index"
-        :class="['mx-3px']" :style="{
+      <img ref="rateIconRef" :src="item.isChecked ? item.fillUrl : item.emptyUrl" v-for="(item, index) in iconList"
+        :key="index" :class="['px-3px', 'box-content']" :style="{
           width: `${width}px`, height: `${height}px`
         }" :data-index="index" @touchstart="onTouchstartChange" @touchmove="onTouchmoveChange"
         @click="onRateClick(index)" />
@@ -53,30 +53,45 @@ const onRateClick = (count: number) => {
 const startX = ref(0) // 开始点
 const rateDivWidth = ref(0)// 父组件盒子长度
 const score = ref(0) // 分数
-const rateRef = ref()
+const rateRef = ref() // 评分附件 ref
+const rateIconRef = ref() // 单个评分Ref
+const rateIconWidth = ref(0) // 单个评分宽度
+const initScore = ref(0) // 第一次
 // touch 思路 https://blog.csdn.net/weixin_42860683/article/details/106801618
 const onTouchstartChange = (e: any) => {
-  console.log(e, 'onTouchstartChange');
+  // console.log(e, 'onTouchstartChange');
   if (e && e.touches.length === 1) {
     rateDivWidth.value = rateRef.value.offsetWidth
+    rateIconWidth.value = rateIconRef.value[0].offsetWidth
     startX.value = e.touches[0].clientX
+    // console.log(rateIconWidth.value, 'rateIconRef');
   }
 }
 
 const onTouchmoveChange = (e: any) => {
-  console.log(e, 'onTouchmoveChange');
+  // console.log(e, 'onTouchmoveChange');
   score.value = 0
   if (e) {
-    let newScore = parseInt(`${(e.touches[0].clientX - startX.value) / rateDivWidth.value * 10}`)
-    score.value = newScore > 10 ? 10 : newScore
+    let newScore = parseInt(`${(e.touches[0].clientX - startX.value) / rateDivWidth.value * (props.count + 2)}`)
+    if (newScore > 0) {
+      const touchValue = newScore > props.count + 2 ? props.count + 2 : newScore
+      score.value = initScore.value + touchValue
+      console.log(initScore, 'initScore');
+    } else {
+      initScore.value = parseInt(`${startX.value / rateIconWidth.value}`)
+      console.log(initScore, 'initScore');
+      console.log(newScore, 'newScore');
+      // 当前判断未成立，永远都是 false 需要想个方法去处理
+      if (newScore !== -0 && !newScore) {
+        score.value = 5
+      } else {
+        score.value = newScore + initScore.value > props.count + 2 ? props.count + 2 : newScore + initScore.value
+      }
+    }
     console.log(score.value, 'score.value');
-    console.log(rateDivWidth.value, 'rateDivWidth.value');
   }
-  if (score.value > 0) {
-    iconList.value = iconList.value.map((item, index) => ({ ...item, isChecked: score.value >= index + 1 }))
-  } else {
-    iconList.value = iconList.value.map(item => ({ ...item, isChecked: false }))
-  }
+  // 后期需加上怎么滑动都最低有一个评分
+  iconList.value = iconList.value.map((item, index) => ({ ...item, isChecked: score.value >= index + 1 }))
 }
 
 onMounted(() => {
