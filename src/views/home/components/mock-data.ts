@@ -37,10 +37,9 @@ const modelList: ModelInfo[] = [
       '通过原生 input 自带的一些属性与事件方法，进行二次封装，从而改变样式与产生不同的效果',
   },
   {
-    name: '',
-    title: 'dialog',
-    label:
-      '弹出模态框，常用于消息提示、消息确认，或在当前页面内完成特定的交互操作，支持函数调用和组件调用两种方式',
+    name: 'Icon',
+    title: 'm-icon',
+    label: '常用的 icon 图标,可选线框风格与实底风格，样式很多，请进入查看',
   },
   {
     name: '',

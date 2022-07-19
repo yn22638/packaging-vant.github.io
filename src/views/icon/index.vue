@@ -8,7 +8,29 @@
     </div>
     <van-collapse v-model="activeNames" accordion @change="onClickChange">
       <van-collapse-item title="默认样式" name="1">
-        <m-icon></m-icon>
+        <m-icon v-for="(icon, index) in defaultsIconList" class="mx-5px" :name="icon.name" :key="index"></m-icon>
+      </van-collapse-item>
+    </van-collapse>
+    <van-collapse v-model="activeNames" accordion @change="onClickChange">
+      <van-collapse-item title="图标颜色" name="2">
+        <m-icon v-for="(icon, index) in defaultsIconList" class="mx-5px" :name="icon.name" :color="icon.color"
+          :key="index"></m-icon>
+      </van-collapse-item>
+    </van-collapse>
+    <van-collapse v-model="activeNames" accordion @change="onClickChange">
+      <van-collapse-item title="图标大小" name="3">
+        <div class="flex items-center">
+          <m-icon v-for="(icon, index) in defaultsIconList" class="mx-5px" :name="icon.name" :size="icon.size"
+            :key="index"></m-icon>
+        </div>
+      </van-collapse-item>
+    </van-collapse>
+    <van-collapse v-model="activeNames" accordion @change="onClickChange">
+      <van-collapse-item title="实底风格" name="4">
+        <div class="flex items-center">
+          <m-icon v-for="(icon, index) in fillIconList" class="mx-5px" :name="icon.name" :size="22" :key="index">
+          </m-icon>
+        </div>
       </van-collapse-item>
     </van-collapse>
   </div>
@@ -18,6 +40,31 @@
 import MIcon from "@/components/m-icon/index.vue";
 const activeNames = ref('1')
 
+const defaultsIconList = ref([
+  { name: 'emotion-happy', color: 'red', size: '20' },
+  { name: 'whale', color: '#974541', size: '26' },
+  { name: 'power-60l3am14', color: '#765414', size: '29' },
+  { name: 'thumbs-up', color: '#258861', size: '34' }
+])
+
+const fillIconList = ref(
+  [{
+    name: 'preview-open',
+    size: 22
+  }, {
+    name: 'like',
+    size: 22
+  }, {
+    name: 'delete-one',
+    size: 22
+  }, {
+    name: 'smiling-face',
+    size: 22
+  }, {
+    name: 'emotion-happy-61ffpg7l',
+    size: 22
+  }]
+)
 // collapse click
 const onClickChange = (index: number) => {
   activeNames.value = `${index}`

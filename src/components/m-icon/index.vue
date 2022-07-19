@@ -1,6 +1,7 @@
 <template>
-  <div class="">
+  <div class="inline-block">
     <iconpark-icon :name="name" :color="color" :size="size"></iconpark-icon>
+
   </div>
 </template>
 
@@ -11,7 +12,7 @@ interface PropInfo {
   size?: string | number
 }
 const props = withDefaults(defineProps<PropInfo>(), {
-  name: 'like',
+  name: 'thumbs-up',
   color: '#000',
   size: '16'
 })
