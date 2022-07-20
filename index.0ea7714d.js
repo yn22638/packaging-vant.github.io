@@ -1,0 +1,1 @@
+import{_ as a,a$ as r,o as s,c as e,b as n,P as o,a as t}from"./index.274eb6a6.js";const u={},l=t("p",null,"v3-proxy",-1);var c=a(u,[["render",function(a,t){const u=r("router-view");return s(),e(o,null,[l,n(u)],64)}]]);export{c as default};
