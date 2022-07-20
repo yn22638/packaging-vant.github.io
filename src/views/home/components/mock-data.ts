@@ -23,7 +23,8 @@ const modelList: ModelInfo[] = [
   {
     name: 'Loading',
     title: 'm-loading',
-    label: '采用 overlay 与 loading 一起实现的页面加载，或局部加载',
+    label:
+      'loading 加载，可实现的页面加载，或局部加载，支持酷炫更改icon 或 text 颜色',
   },
   {
     name: 'Rate', //
