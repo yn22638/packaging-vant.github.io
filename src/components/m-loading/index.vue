@@ -1,9 +1,9 @@
 <template>
   <div class="m-loading" v-if="show">
-    <iconpark-icon class="m-loading__animation" :name="name" :color="loadingIconColor" :size="size"
-      :style="{ width: `${size}px`, height: `${size}px` }">
+    <iconpark-icon class="m-loading__animation" :name="name" :color="loadingIconColor" :size="iconSize"
+      :style="{ width: `${iconSize}px`, height: `${iconSize}px` }">
     </iconpark-icon>
-    <p class="mt-10px" :style="{ color: loadingTextColor }">{{ loadingText }}</p>
+    <p class="mt-10px" :style="{ color: loadingTextColor, fontSize: `${textSize}px` }">{{ loadingText }}</p>
   </div>
 </template>
 
@@ -15,7 +15,8 @@ interface PropInfo {
   loadingIconColor?: string
   name?: string
   color?: string
-  size?: string | number
+  iconSize?: string | number
+  textSize?: string | number
 }
 const props = withDefaults(
   defineProps<PropInfo>(),
@@ -26,7 +27,8 @@ const props = withDefaults(
     loadingIconColor: '#1989fa',
     name: 'loading-one',
     color: '#000',
-    size: '25'
+    iconSize: '25',
+    textSize: '15'
   }
 )
 </script>

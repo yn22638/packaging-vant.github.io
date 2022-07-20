@@ -16,29 +16,34 @@
         <p>点击看效果</p>
         <van-button type="primary" size="mini" @click="onSetLoadingTextClick">set click</van-button>
       </van-collapse-item>
-      <van-collapse-item title="自定义加载时间" name="3">
+      <van-collapse-item title="自定义Icon & Text 大小" name=" 3">
+        <p>这里icon 给 30，text 给 20</p>
+        <p>点击看效果</p>
+        <van-button type="primary" size="mini" @click="onSetLoadingTextSizeClick">set click</van-button>
+      </van-collapse-item>
+      <van-collapse-item title="自定义加载时间" name="4">
         <p>下面按钮数字对应不同的加载时间，单位为秒，快来点击看效果吧！</p>
         <van-button type="primary" size="mini" @click="onSetLoadingTimeClick(5)">0.5s click</van-button>
         <van-button type="success" size="mini" @click="onSetLoadingTimeClick(30)">3s click</van-button>
         <van-button type="danger" size="mini" @click="onSetLoadingTimeClick(60)">6s click</van-button>
         <van-button type="warning" size="mini" @click="onSetLoadingTimeClick(100)">10s click</van-button>
       </van-collapse-item>
-      <van-collapse-item title="自定义Icon & Text 颜色" name="4">
+      <van-collapse-item title="自定义Icon & Text 颜色" name="5">
         <p>点击看效果</p>
         <van-button type="primary" size="mini" @click="onSetLoadingTextColorClick">set click</van-button>
       </van-collapse-item>
-      <van-collapse-item title="自定义加载Icon" name="5">
+      <van-collapse-item title="自定义加载Icon" name="6">
         <p>点击看效果</p>
         <van-button type="primary" size="mini" @click="onSetLoadingIconClick">set click</van-button>
       </van-collapse-item>
-      <van-collapse-item title="随机加载Icon & 随机颜色" name="6">
+      <van-collapse-item title="随机加载Icon & 随机颜色" name="7">
         <p>点击看效果</p>
         <van-button type="primary" size="mini" @click="onRandomLoadingIconClick">set click</van-button>
       </van-collapse-item>
     </van-collapse>
   </div>
   <m-loading :show="isShowOverlay" :loadingText="loadingText" :loading-icon-color="loadingIconColor"
-    :loading-text-color="loadingTextColor" :name="loadingIcon"></m-loading>
+    :loading-text-color="loadingTextColor" :name="loadingIcon" :text-size="textSize" :icon-size="iconSize"></m-loading>
 </template>
 
 <script setup lang="ts">
@@ -50,6 +55,8 @@ const loadingText = ref<string | undefined>(undefined)
 const loadingIconColor = ref<string | undefined>(undefined)
 const loadingTextColor = ref<string | undefined>(undefined)
 const loadingIcon = ref<string | undefined>(undefined)
+const iconSize = ref<string | undefined | number>(undefined)
+const textSize = ref<string | undefined | number>(undefined)
 
 // collapse click
 const onClickChange = (index: number) => {
@@ -66,6 +73,16 @@ const onShowLoadingClick = () => {
 const onSetLoadingTextClick = () => {
   init()
   loadingText.value = '你好，我是自定义标题哈'
+  loadingState(2000)
+}
+
+// 修改加载Icon Text 大小
+const onSetLoadingTextSizeClick = () => {
+  init()
+  iconSize.value = 30
+  textSize.value = 20
+  loadingTextColor.value = '#FF1493'
+  loadingIconColor.value = '#FFE4E1'
   loadingState(2000)
 }
 
@@ -121,6 +138,8 @@ const init = () => {
   loadingTextColor.value = undefined
   loadingIconColor.value = undefined
   loadingIcon.value = undefined
+  iconSize.value = undefined
+  textSize.value = undefined
 }
 
 // 随机生成颜色
