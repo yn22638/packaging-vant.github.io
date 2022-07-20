@@ -1,7 +1,6 @@
 <template>
   <div class="inline-block">
     <iconpark-icon :name="name" :color="color" :size="size"></iconpark-icon>
-
   </div>
 </template>
 
