@@ -33,11 +33,18 @@
         </div>
       </van-collapse-item>
     </van-collapse>
+    <p class="flex p-20px text-pink-400 items-center justify-end" @click="onLookAllClick">查看更多<m-icon name="right"
+        color="#f9a8d4" :size="22">
+      </m-icon>
+    </p>
   </div>
 </template>
 
 <script setup lang="ts">
 import MIcon from "@/components/m-icon/index.vue";
+
+const router = useRouter()
+
 const activeNames = ref('1')
 
 const defaultsIconList = ref([
@@ -68,6 +75,10 @@ const fillIconList = ref(
 // collapse click
 const onClickChange = (index: number) => {
   activeNames.value = `${index}`
+}
+
+const onLookAllClick = () => {
+  router.push({ name: 'IconAll' })
 }
 </script>
 

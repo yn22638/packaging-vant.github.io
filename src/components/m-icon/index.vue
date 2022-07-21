@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-block">
+  <div class="inline-block" :style="{ width: `${size}px`, height: `${size}px` }">
     <iconpark-icon :name="name" :color="color" :size="size"></iconpark-icon>
   </div>
 </template>
