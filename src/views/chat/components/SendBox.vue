@@ -1,20 +1,21 @@
 <template>
   <div class="bg-fff w-full send-box">
     <div class="flex py-6px px-12px send-box__content justify-between items-center">
-      <van-image width="22" :src="`https://static.weixiaotong.com.cn/static/icon/mobilemain/app_${isVoice ? 'text-input' : 'icon_chat_voice'
-      }.svg`" @click="onVoiceClick"></van-image>
+      <div class="flex rounded-1/2 h-22px w-22px justify-center items-center"
+        :class="`${isVoice ? 'bg-fff' : 'bg-primary'}`" @click="onVoiceClick">
+        <m-icon :name="`${isVoice ? 'keyboard' : 'voice'}`" :size="18" :color="`${isVoice ? '#525252' : '#FFFFFF'}`"
+          @click="onPhotoClick"></m-icon>
+      </div>
       <van-field class="content__field" v-model="fieldValue" ref="field" v-show="!isVoice" placeholder="请输入文字"
         @keypress.enter.native="onSendClick" @focus="onFieldFocus" />
       <van-button class="content__voice" :class="{ 'content__voice--active': isSpeak }" type="default" v-show="isVoice"
         size="small" @touchstart.native="onVoiceTouchStart" @touchend.native="onVoiceTouchEnd">
         按住 说话
       </van-button>
-      <van-icon class="icon__smile" :name="`https://static.weixiaotong.com.cn/static/icon/mobilemain/app_${isSmile ? 'chat_em' : 'text-input'
-      }.svg`" @click="onSmileClick"></van-icon>
-
+      <m-icon class="mr-10px" :name="`${isSmile ? 'emotion-happy' : 'keyboard'}`" size="18" color="#525252"
+        @click="onSmileClick"></m-icon>
       <transition name="fade" mode="out-in">
-        <van-icon name="https://static.weixiaotong.com.cn/static/icon/mobilemain/app_chat_pic.svg" v-if="!fieldValue"
-          @click="onPhotoClick"></van-icon>
+        <m-icon v-if="!fieldValue" name="pic-one" :size="18" color="#525252" @click="onPhotoClick"></m-icon>
         <van-button class="content__send-btn" v-else type="primary" size="small" @click="onSendClick">
           发送
         </van-button>
@@ -28,7 +29,7 @@
 
 <script setup lang="ts">
 import MEmotion from "@/components/m-emotion/index.vue";
-
+import MIcon from "@/components/m-icon/index.vue";
 const isVoice = ref(false)
 const isSpeak = ref(false)
 const isSmile = ref(true)
@@ -130,10 +131,6 @@ onMounted(() => {
         padding: 0 4px;
         background-color: #2588ff;
       }
-    }
-
-    .icon__smile {
-      margin-right: 10px;
     }
   }
 
