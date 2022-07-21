@@ -42,6 +42,7 @@ export default defineConfig({
         '666': '#666',
         '999': '#999',
         f8: '#f8f8f8',
+        primary: '#2488FF',
       },
     },
   },
