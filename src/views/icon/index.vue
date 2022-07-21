@@ -10,26 +10,38 @@
       <van-collapse-item title="默认样式" name="1">
         <m-icon v-for="(icon, index) in defaultsIconList" class="mx-5px" :name="icon.name" :key="index"></m-icon>
       </van-collapse-item>
-    </van-collapse>
-    <van-collapse v-model="activeNames" accordion @change="onClickChange">
       <van-collapse-item title="图标颜色" name="2">
+        <p class="py-8px">随机给了颜色， 具体看效果</p>
         <m-icon v-for="(icon, index) in defaultsIconList" class="mx-5px" :name="icon.name" :color="icon.color"
           :key="index"></m-icon>
       </van-collapse-item>
-    </van-collapse>
-    <van-collapse v-model="activeNames" accordion @change="onClickChange">
       <van-collapse-item title="图标大小" name="3">
+        <p class="py-8px">这里大小是递增给的</p>
         <div class="flex items-center">
           <m-icon v-for="(icon, index) in defaultsIconList" class="mx-5px" :name="icon.name" :size="icon.size"
             :key="index"></m-icon>
         </div>
       </van-collapse-item>
-    </van-collapse>
-    <van-collapse v-model="activeNames" accordion @change="onClickChange">
       <van-collapse-item title="实底风格" name="4">
         <div class="flex items-center">
           <m-icon v-for="(icon, index) in fillIconList" class="mx-5px" :name="icon.name" :size="22" :key="index">
           </m-icon>
+        </div>
+      </van-collapse-item>
+      <van-collapse-item title="多色风格" name="5">
+        <p class="py-8px">颜色都是随机搭配的哈，不喜勿喷，自己有想法可以传入不通的颜色，去查看满意的效果</p>
+        <div class="flex items-center">
+          <m-icon v-for="(icon, index) in fillIconList" class="mx-5px" :name="icon.name" :fill="icon.fill"
+            :stroke="icon.stroke" :size="22" :key="index">
+          </m-icon>
+        </div>
+      </van-collapse-item>
+      <van-collapse-item title="动态旋转/逆时针 顺时针" name="6">
+        <div class="flex items-center">
+          <p>iconpacrk 组件内部问题，暂时关闭</p>
+          <!-- <m-icon v-for="(icon, index) in fillIconList" class="mx-5px" :name="icon.name" :fill="icon.fill"
+            :stroke="icon.stroke" :spin="icon.spin" :rtl='icon?.rtl' :size="22" :key="index">
+          </m-icon> -->
         </div>
       </van-collapse-item>
     </van-collapse>
@@ -57,19 +69,37 @@ const defaultsIconList = ref([
 const fillIconList = ref(
   [{
     name: 'preview-open',
-    size: 22
+    size: 22,
+    stroke: '#00BFFF',
+    fill: '#90EE90',
+    spin: true
   }, {
     name: 'like',
-    size: 22
+    size: 22,
+    stroke: '#4338ca',
+    fill: '#34d399',
+    spin: true,
+    rtl: true
   }, {
     name: 'delete-one',
-    size: 22
+    size: 22,
+    stroke: '#0000FF',
+    fill: '#FFE4E1',
+    spin: true
   }, {
     name: 'smiling-face',
-    size: 22
+    size: 22,
+    stroke: '#FFD700',
+    fill: '#FF1493',
+    spin: true,
+    rtl: true
+
   }, {
     name: 'emotion-happy-61ffpg7l',
-    size: 22
+    size: 22,
+    stroke: '#f9ae3d',
+    fill: '#5ac725',
+    spin: true
   }]
 )
 // collapse click
