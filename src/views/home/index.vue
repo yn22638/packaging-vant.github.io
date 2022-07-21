@@ -60,41 +60,6 @@ const onBindTop = () => {
     }
   }, 30)
 }
-const lengthOfLongestSubstring = (str: string): number => {
-  if (str.length < 1) return 0
-  let i = 0 // 当前字母的索引
-  let flag = 0 // 重复字母的索引
-  let length = 0 // 存储最大长度
-  let result = 0 // 存储第一次出现重复的索引
-  while (i < str.length) {
-    // 首先要拿到重复值的索引
-    let pos = str.indexOf(str.charAt(i), flag)
-    // 当遇到重复的并且小于当前字母索引才可以进行赋值与对比
-    if (pos < i) {
-      console.log(pos, 'pos')
-      length > result && (result = length)
-      if (result >= str.length - pos - 1) {
-        return result
-      }
-      console.log(result, 'result');
-      // 拿到当前最大长度
-      length = i - pos - 1;
-      console.log(length, 'length1');
-
-      flag = pos + 1;
-    }
-    length++;
-    console.log(length, 'length2');
-    i++;
-  }
-  return length
-}
-onMounted(() => {
-  const str = 'abbcdcertyilb'
-  const maxLength = lengthOfLongestSubstring(str)
-  console.log(maxLength, 'max');
-
-})
 
 </script>
 
