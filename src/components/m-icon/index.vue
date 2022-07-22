@@ -1,12 +1,14 @@
 <template>
   <div class="inline-block" :style="{ width: `${size}px`, height: `${size}px` }">
     <!-- :spin="spin" :rtl="rtl"  由于设置 false 不起作用，所以先注释 -->
-    <iconpark-icon :name="name" :color="color" :size="size" :fill='fill' :stroke="stroke">
+    <iconpark-icon :name="name" :color="color" :size="size" :fill='fill' :stroke="stroke" :style="style">
     </iconpark-icon>
   </div>
 </template>
 
 <script setup lang="ts">
+import { StyleHTMLAttributes, StyleValue } from 'vue';
+
 interface PropInfo {
   name?: string
   color?: string
@@ -15,6 +17,7 @@ interface PropInfo {
   stroke?: string
   spin?: boolean
   rtl?: boolean
+  style?: CSSStyleDeclaration
 }
 const props = withDefaults(defineProps<PropInfo>(), {
   name: 'thumbs-up',
@@ -24,6 +27,7 @@ const props = withDefaults(defineProps<PropInfo>(), {
   stroke: '',
   spin: false,
   rtl: false,
+  style: undefined,
 })
 </script>
 
