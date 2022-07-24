@@ -59,7 +59,6 @@ const rateIconWidth = ref(0) // 单个评分宽度
 const initScore = ref(0) // 第一次
 // touch 思路 https://blog.csdn.net/weixin_42860683/article/details/106801618
 const onTouchstartChange = (e: any) => {
-  // console.log(e, 'onTouchstartChange');
   if (e && e.touches.length === 1) {
     rateDivWidth.value = rateRef.value.offsetWidth
     rateIconWidth.value = rateIconRef.value[0].offsetWidth
@@ -69,26 +68,21 @@ const onTouchstartChange = (e: any) => {
 }
 
 const onTouchmoveChange = (e: any) => {
-  // console.log(e, 'onTouchmoveChange');
   score.value = 0
   if (e) {
     let newScore = parseInt(`${(e.touches[0].clientX - startX.value) / rateDivWidth.value * (props.count + 2)}`)
     if (newScore > 0) {
       const touchValue = newScore > props.count + 2 ? props.count + 2 : newScore
       score.value = initScore.value + touchValue
-      console.log(initScore, 'initScore');
+      // console.log(initScore, 'initScore');
     } else {
       initScore.value = parseInt(`${startX.value / rateIconWidth.value}`)
-      console.log(initScore, 'initScore');
-      console.log(newScore, 'newScore');
-      // 当前判断未成立，永远都是 false 需要想个方法去处理
-      if (newScore !== -0 && !newScore) {
-        score.value = 5
-      } else {
-        score.value = newScore + initScore.value > props.count + 2 ? props.count + 2 : newScore + initScore.value
-      }
+      // console.log(initScore, 'initScore');
+      // console.log(newScore, 'newScore');
+      score.value = newScore + initScore.value > props.count + 2 ? props.count + 2 : newScore + initScore.value
+      
     }
-    console.log(score.value, 'score.value');
+    // console.log(score.value, 'score.value');
   }
   // 后期需加上怎么滑动都最低有一个评分
   iconList.value = iconList.value.map((item, index) => ({ ...item, isChecked: score.value >= index + 1 }))
