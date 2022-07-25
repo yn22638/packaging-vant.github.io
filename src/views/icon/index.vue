@@ -45,10 +45,12 @@
         </div>
       </van-collapse-item>
     </van-collapse>
-    <p class="flex p-20px text-pink-400 items-center justify-end" @click="onLookAllClick">查看更多<m-icon name="right"
-        color="#f9a8d4" :size="22">
+    <div class="flex p-20px items-center justify-end">
+      <p class=" text-pink-400 inline" @click="onLookAllClick">查看更多
+      </p>
+      <m-icon name="right" color="#f9a8d4" :size="22">
       </m-icon>
-    </p>
+    </div>
   </div>
 </template>
 
