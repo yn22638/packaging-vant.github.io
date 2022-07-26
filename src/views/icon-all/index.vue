@@ -1,11 +1,11 @@
 <template>
   <div class="p-16px icon-all">
     <div class="bg-fff rounded-xl flex flex-wrap px-6px">
-      <div class="flex flex-col h-100px w-110px justify-center items-center" v-for="(icon, index) in iconList"
+      <div class="flex flex-col h-100px py-10px w-110px justify-center items-center" v-for="(icon, index) in iconList"
         :key="index" @click="onCopyClick(icon)">
         <m-icon :name="icon" :size="24">
         </m-icon>
-        <p class="pt-10px text-12">{{ icon }}</p>
+        <p class="text-center px-5px pt-10px text-12">{{ icon }}</p>
       </div>
     </div>
   </div>
@@ -28,11 +28,12 @@ const copyText = (text: string) => {
 const onCopyClick = (icon: string) => {
   copyText(`<m-icon name="${icon}" />`)
   Toast(`<m-icon name="${icon}" /> 复制成功`)
-}</script>
+}
+</script>
 
 <style lang="less" scoped>
 .icon-all {
   min-height: 100vh;
-  background-color: #e8e8e8;
+  background-color: #f7f8fa;
 }
 </style>
