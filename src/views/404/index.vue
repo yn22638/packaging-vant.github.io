@@ -1,9 +1,7 @@
 <template>
   <div class="">
     <h4 class="text-center pt-10rem">该页面不存在 ╮(╯_╰)╭</h4>
-    <img class="pt-20px" src="https://www.25xt.com/uploadfiles/ueditor/upload/image/20190926/1569478607156383.jpg"
-      alt="">
-
+    <img class="px-10px pt-20px" src="@/assets/empty-two.svg" alt="">
     <div class="flex justify-center">
       <van-button type="primary" @click="$router.push('/')">
         返回主页
@@ -14,6 +12,17 @@
 </template>
 
 <script setup lang="ts">
+import moment from "moment";
+// const emptyOne = import.meta.glob('@/assets/empty-one.jpg')
+// const emptyTwo = import.meta.glob('@/assets/empty-two.svg')
+
+const emptyBg = ref('')
+
+onMounted(() => {
+  const hour = moment().hour()
+  // hour =  0 -> 23
+  emptyBg.value = `@/assets/${hour > 11 ? 'empty-one.jpg' : 'empty-two.svg'}`
+})
 </script>
 
 <style lang="less" scoped>
