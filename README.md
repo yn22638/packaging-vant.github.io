@@ -1,13 +1,16 @@
-# 封装组件
+# 线上地址
 
-![example workflow](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
-![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=feature-1)
-![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
+点击即可预览效果[Go](https://yn22638.github.io/packaging-vant.github.io/)
+>Tip:注意是h5端
 
-**注释通过 ui 框架或者一些插件，再或者纯手动封装的组件，通过自己的需求，去实现，并且写上详细的说明，供大家使用**
+**主要针对现有的 ui 框架内容 可能有些地方做的还是不够好，就自己进行二次封装个，还有些就是自己练手去做 `ui` 库里面的内容，因为现在参与开发次数越来越多，所以还是站在开发的角度去做一些组件，也当是自己练手啦**
 
 [预览地址](https://yn22638.github.io/packaging-vant.github.io/)
+
+### 说明
+* 大家如果合适的组件那么直接拿走去用就好了
+* 有不足点随时提出
+* 具体组件文档还为写，但是可以加我`vx`与我沟通
 
 ### 技术栈
 
