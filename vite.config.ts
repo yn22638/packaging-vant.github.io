@@ -14,6 +14,7 @@ export default defineConfig({
     WindiCSS(),
     Components({
       resolvers: [VantResolver()],
+      dts: './src/components.d.ts',
     }),
     AutoImport({
       imports: [
