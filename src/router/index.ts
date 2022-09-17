@@ -138,6 +138,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'IconAll',
     component: () => import('@/views/icon-all/index.vue'),
   },
+  {
+    path: '/svg-icon-demo',
+    name: 'IconAll',
+    component: () => import('@/views/svg-icon-demo/index.vue'),
+  },
 ]
 const router = createRouter({
   // 设置为history模式，就是路径里面没有#,  createWebHashHistory 是默认的，括号里面的就是基础路径，可以理解为项目名称，就是请求路径的基础url

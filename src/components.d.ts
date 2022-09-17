@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     MBackTop: typeof import('./components/m-back-top/index.vue')['default']
     MEmotion: typeof import('./components/m-emotion/index.vue')['default']
     MIcon: typeof import('./components/m-icon/index.vue')['default']
+    MIconDemo: typeof import('./components/m-icon-demo/index.vue')['default']
     MInput: typeof import('./components/m-input/index.vue')['default']
     MLoading: typeof import('./components/m-loading/index.vue')['default']
     MPopupPicker: typeof import('./components/m-popup-picker/index.vue')['default']
