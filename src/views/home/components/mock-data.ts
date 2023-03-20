@@ -43,6 +43,11 @@ const modelList: ModelInfo[] = [
     label: '常用的 icon 图标,可选线框风格与实底风格，样式很多，请进入查看',
   },
   {
+    name: 'ThemeSwitch',
+    title: 'theme-switch',
+    label: '深夜/明亮模式切换',
+  },
+  {
     name: '',
     title: 'dropdown-menu',
     label: '向下弹出的菜单列表',

@@ -13,8 +13,13 @@ export default defineConfig({
     vue(),
     WindiCSS(),
     Components({
+      // vant-UI自动解析
       resolvers: [VantResolver()],
+      // 配置自动注入路径
+      dirs: ['src/components', 'src/views/components'],
+      // 指派全局组件声明文件位置
       dts: './src/components.d.ts',
+      extensions: ['vue', 'tsx'],
     }),
     AutoImport({
       imports: [
@@ -22,6 +27,7 @@ export default defineConfig({
         'vue-router',
         '@vueuse/core',
         {
+          '@/stores': ['useUserStore'],
           vant: [
             // 像 Notify 需要在此处引入，要不打包以后没作用
             'Toast', // import { Toast } from 'vant'
@@ -45,6 +51,15 @@ export default defineConfig({
     port: 3000, // 端口号
     open: true, // 自动在浏览器打开
     https: false, // 是否开启 https
+    proxy: {
+      '/api/pc': {
+        // 正式环境
+        // target: XXXX,
+        // 测试环境
+        target: '',
+        changeOrigin: true,
+      },
+    },
   },
   // css 处理
   css: {

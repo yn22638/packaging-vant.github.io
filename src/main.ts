@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import stores from './stores'
 import App from './App.vue'
 import router from './router/index'
 import 'virtual:windi.css'
@@ -7,4 +8,4 @@ import 'virtual:windi.css'
 import 'vant/lib/index.css'
 const app = createApp(App)
 // vant(app)
-app.use(router).mount('#app')
+app.use(stores).use(router).mount('#app')
