@@ -1,17 +1,29 @@
 <template>
-  <div class="flex h-full home">
+  <div class="flex h-full w-full home">
     <div
-      class="flex flex-shrink font-bold w-full p-16px text-22px home-header justify-between overflow-hidden ai-center"
+      class="flex flex-shrink font-bold bg-white/70 w-full p-16px text-22px justify-between overflow-hidden ai-center box-border backdrop-blur-20px dark:bg-hex-121212"
+      :class="[isDark ? 'header-theme-dark' : 'header-light-theme']"
     >
-      目录
+      <p class="text-333 dark:text-white/87">目录</p>
+      <img
+        :src="isDark ? themeDarkIcon : themeLightIcon"
+        class="h-24px w-24px light-theme"
+        :class="{ 'light-theme': !isDark, 'dark-theme': isDark }"
+        @click="toggleDark()"
+      />
     </div>
     <div
-      class="flex-1 overflow-auto"
+      class="flex-1 overflow-auto dark:bg-hex-121212"
       @scroll="onScrollChange"
       id="content-box"
       ref="contentRef"
     >
-      <van-notice-bar left-icon="volume-o" :scrollable="false" class="py-16px">
+      <van-notice-bar
+        left-icon="volume-o"
+        :scrollable="false"
+        class="dark:bg-hex-181A20"
+        :class="{ 'dark-notice-bar': isDark }"
+      >
         <van-swipe
           vertical
           class="notice-swipe"
@@ -24,7 +36,7 @@
           <van-swipe-item>白茶清欢无别事，我在等风也等你。</van-swipe-item>
         </van-swipe>
       </van-notice-bar>
-      <model-card class="pb-16px"></model-card>
+      <model-card class="pb-16px" :isDark="isDark"></model-card>
       <m-back-top
         :scroll-top-h="scrollTopH"
         @on-back-top="onBindTop"
@@ -42,12 +54,12 @@
         src="@/assets/catalogue-icon.png"
         class="h-24px mr-2px ml-8px w-25px"
       />
-      <button
+      <div
         class="bg-transparent h-20px text-fff text-14px leading-20px"
         @click.stop="onCatalogueClick"
       >
         知识小🏡
-      </button>
+      </div>
     </div>
   </div>
 </template>
@@ -55,11 +67,16 @@
 <script setup lang="ts">
 import ModelCard from './components/ModelCard.vue'
 import MBackTop from '@/components/m-back-top/PropBackTop.vue'
+import themeLightIcon from '@/assets/theme-light__icon.png'
+import themeDarkIcon from '@/assets/theme-dark__icon.png'
 // 引入本地图片
 // const catalogueIcon = import.meta.glob('@/assets/catalogue-icon.svgs')
 const contentRef = ref()
 const isShowCatalogue = ref(false)
 const scrollTopH = ref(0)
+// 切换主题色
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
 
 const onCatalogueClick = () => {
   Toast('正在开发中！，敬请期待')
@@ -99,16 +116,57 @@ const onBindTop = () => {
     }
   }
 
-  &-header {
-    background-color: hsla(0, 0%, 100%, 0.7);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-  }
-
   .catalogue__btn {
     border-radius: 405px 0 0 405px;
     background: rgba(0, 0, 0, 0.3);
     transition: all 0.5s ease;
+  }
+
+  .light-theme {
+    animation: rotate-light 8s linear infinite;
+  }
+  .dark-theme {
+    animation: zoom-dark 2s linear infinite;
+  }
+
+  .header-theme-dark {
+    box-shadow: 0px 1px 4px 0px rgba(255, 255, 255, 0.06);
+  }
+  .header-theme-light {
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.06);
+  }
+
+  :deep(.dark-notice-bar) {
+    --van-notice-bar-text-color: #a06af9;
+  }
+
+  @keyframes rotate-light {
+    0% {
+      transform: rotate(0) translate(0) scale(1);
+    }
+    100% {
+      transform: rotate(1turn) translate(0) scale(1);
+    }
+  }
+  @keyframes zoom-dark {
+    0% {
+      transform: rotate(0) translate(0) scale(1);
+    }
+    20% {
+      transform: rotate(0) translate(0) scale(1.2);
+    }
+    40% {
+      transform: rotate(0) translate(0) scale(1.3);
+    }
+    60% {
+      transform: rotate(0) translate(0) scale(1.2);
+    }
+    80% {
+      transform: rotate(0) translate(0) scale(1.1);
+    }
+    100% {
+      transform: rotate(0) translate(0) scale(1);
+    }
   }
 }
 </style>
