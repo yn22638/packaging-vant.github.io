@@ -90,9 +90,6 @@ const generateMixed = () => {
 
 <style lang="less" scoped>
 :deep(.dark-cell) {
-  .van-cell:after {
-    border: none;
-  }
   --van-cell-background-color: #262a34;
   .van-cell__title {
     span {
