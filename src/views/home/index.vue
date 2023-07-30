@@ -30,10 +30,10 @@
           :autoplay="3000"
           :show-indicators="false"
         >
-          <van-swipe-item>一份耕耘,一份收获。</van-swipe-item>
-          <van-swipe-item>愿你一生努力,一生被爱。</van-swipe-item>
-          <van-swipe-item>哪有什么十全十美，凡事只求半称心。</van-swipe-item>
-          <van-swipe-item>白茶清欢无别事，我在等风也等你。</van-swipe-item>
+          <van-swipe-item>一份耕耘,一份收获.</van-swipe-item>
+          <van-swipe-item>愿你一生努力,一生被爱.</van-swipe-item>
+          <van-swipe-item>哪有什么十全十美，凡事只求半称心.</van-swipe-item>
+          <van-swipe-item>白茶清欢无别事，我在等风也等你.</van-swipe-item>
         </van-swipe>
       </van-notice-bar>
       <model-card class="pb-16px" :isDark="isDark"></model-card>
